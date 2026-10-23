@@ -3,7 +3,7 @@ import images from "../data/images.json";
 import type { Day } from "../types";
 import { CATEGORY_ICON, CATEGORY_TONE, DAY_TYPE_ICON, DAY_TYPE_TONE, TONE } from "../lib/style";
 
-export interface ImageMeta { file: string; source_page: string; author: string; license: string; license_url: string | null; wikidata_id: string }
+export interface ImageMeta { file: string; source_page: string; author: string; license: string; license_url: string | null; wikidata_id: string | null }
 const manifest = images as Record<string, ImageMeta>;
 
 export const photoFor = (id: string): ImageMeta | undefined => manifest[id];
