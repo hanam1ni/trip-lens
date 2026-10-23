@@ -1,0 +1,1514 @@
+{
+  "schema_version": "1.1.0",
+  "meta": {
+    "source_file": "Aomori Plan DB - Sheet1.csv",
+    "generated_on": "2026-10-23",
+    "parse_notes": [
+      "Flight times are stored as local wall-clock time per airport. The implied flight time is 5h15m outbound (23:45 BKK to 07:00 NRT) vs 7h15m return, so confirm whether the outbound arrival is in Tokyo time or Bangkok time.",
+      "All prices are empty in the source and are stored as null. Flight currency is THB, plan currency is JPY.",
+      "Thai-language notes were translated to English in 'note'; the original is kept in 'note_original'.",
+      "Hotel check-in/check-out dates are derived from the 'Sleep City' column and the day dates.",
+      "day_type, category and cuisine are derived labels added for the UI; they are not in the source.",
+      "Drive durations are travel time between consecutive points only, as written in the source.",
+      "Items marked needs_review had ambiguous or possibly mistyped source text."
+    ]
+  },
+  "trip": {
+    "id": "aomori-tohoku-2026",
+    "title": "Aomori to Tokyo Road Trip",
+    "region": "Tohoku, Japan",
+    "start_date": "2026-10-28",
+    "end_date": "2026-11-09",
+    "day_count": 13,
+    "night_count": 12,
+    "default_currency": "JPY",
+    "home_timezone": "Asia/Bangkok",
+    "destination_timezone": "Asia/Tokyo"
+  },
+  "flights": [
+    {
+      "id": "fl-01",
+      "direction": "outbound",
+      "flight_number": "ZG052",
+      "origin": {
+        "iata": "BKK",
+        "city": "Bangkok"
+      },
+      "destination": {
+        "iata": "NRT",
+        "city": "Tokyo (Narita)"
+      },
+      "departure": {
+        "local_datetime": "2026-10-27T23:45",
+        "timezone": "Asia/Bangkok"
+      },
+      "arrival": {
+        "local_datetime": "2026-10-28T07:00",
+        "timezone": "Asia/Tokyo"
+      },
+      "routing": "direct",
+      "price": null,
+      "currency": "THB",
+      "needs_review": true,
+      "review_note": "Source: '27 Oct 23:45 - 07:00 (+1)'. Arrival timezone assumed to be Tokyo; implied duration is 5h15m vs 7h15m on the return."
+    },
+    {
+      "id": "fl-02",
+      "direction": "return",
+      "flight_number": "ZG051",
+      "origin": {
+        "iata": "NRT",
+        "city": "Tokyo (Narita)"
+      },
+      "destination": {
+        "iata": "BKK",
+        "city": "Bangkok"
+      },
+      "departure": {
+        "local_datetime": "2026-11-09T17:00",
+        "timezone": "Asia/Tokyo"
+      },
+      "arrival": {
+        "local_datetime": "2026-11-09T22:15",
+        "timezone": "Asia/Bangkok"
+      },
+      "routing": "direct",
+      "price": null,
+      "currency": null
+    }
+  ],
+  "accommodations": [
+    {
+      "id": "acc-01",
+      "name": "Home in Aomori",
+      "city": "Aomori",
+      "type": "other",
+      "check_in": "2026-10-28",
+      "check_out": "2026-10-30",
+      "nights": 2,
+      "day_numbers": [
+        1,
+        2
+      ],
+      "meal_plan": null,
+      "price": null,
+      "currency": "JPY",
+      "notes": "Listed in the source as 'Home in Aomori'; property type not specified.",
+      "location": {
+        "lat": 40.822734,
+        "lng": 140.746924,
+        "maps_query": "Home in Aomori, Aomori"
+      }
+    },
+    {
+      "id": "acc-02",
+      "name": "Kamenoi Hotel Akita Yuze",
+      "city": "Akita Yuze",
+      "type": "hotel",
+      "check_in": "2026-10-30",
+      "check_out": "2026-10-31",
+      "nights": 1,
+      "day_numbers": [
+        3
+      ],
+      "meal_plan": "half_board",
+      "price": null,
+      "currency": "JPY",
+      "location": {
+        "lat": null,
+        "lng": null,
+        "maps_query": "Kamenoi Hotel Akita Yuze, Akita Yuze, Japan"
+      }
+    },
+    {
+      "id": "acc-03",
+      "name": "Cerulean Resort Aoni",
+      "city": "Nyuto Onsen",
+      "type": "resort",
+      "check_in": "2026-10-31",
+      "check_out": "2026-11-01",
+      "nights": 1,
+      "day_numbers": [
+        4
+      ],
+      "meal_plan": "half_board",
+      "price": null,
+      "currency": "JPY",
+      "needs_review": true,
+      "review_note": "Name kept exactly as written in the source ('Aoni'); verify the spelling.",
+      "location": {
+        "lat": null,
+        "lng": null,
+        "maps_query": "Cerulean Resort Aoni, Nyuto Onsen, Japan"
+      }
+    },
+    {
+      "id": "acc-04",
+      "name": "Daiwa Roynet Morioka Ekimae",
+      "city": "Morioka",
+      "type": "hotel",
+      "check_in": "2026-11-01",
+      "check_out": "2026-11-03",
+      "nights": 2,
+      "day_numbers": [
+        5,
+        6
+      ],
+      "meal_plan": null,
+      "price": null,
+      "currency": "JPY",
+      "location": {
+        "lat": 39.701846,
+        "lng": 141.138985,
+        "maps_query": "Daiwa Roynet Morioka Ekimae, Morioka"
+      }
+    },
+    {
+      "id": "acc-05",
+      "name": "Rakuten STAY x EAGLES 202 with Roof balcony",
+      "city": "Sendai",
+      "type": "apartment",
+      "check_in": "2026-11-03",
+      "check_out": "2026-11-05",
+      "nights": 2,
+      "day_numbers": [
+        7,
+        8
+      ],
+      "meal_plan": null,
+      "price": null,
+      "currency": "JPY",
+      "notes": "Room 202 with roof balcony. Type 'apartment' is inferred from the Rakuten STAY brand.",
+      "location": {
+        "lat": null,
+        "lng": null,
+        "maps_query": "Rakuten STAY x EAGLES 202 with Roof balcony, Sendai, Japan"
+      }
+    },
+    {
+      "id": "acc-06",
+      "name": "Daiwa Roynet Koriyama",
+      "city": "Koriyama",
+      "type": "hotel",
+      "check_in": "2026-11-05",
+      "check_out": "2026-11-06",
+      "nights": 1,
+      "day_numbers": [
+        9
+      ],
+      "meal_plan": null,
+      "price": null,
+      "currency": "JPY",
+      "location": {
+        "lat": 37.397552,
+        "lng": 140.386891,
+        "maps_query": "Daiwa Roynet Koriyama, Koriyama"
+      }
+    },
+    {
+      "id": "acc-07",
+      "name": "MIMARU Tokyo Shinjuku West",
+      "city": "Tokyo",
+      "type": "apartment",
+      "check_in": "2026-11-06",
+      "check_out": "2026-11-09",
+      "nights": 3,
+      "day_numbers": [
+        10,
+        11,
+        12
+      ],
+      "meal_plan": null,
+      "price": null,
+      "currency": "JPY",
+      "notes": "Type 'apartment' is inferred from the MIMARU brand (apartment-style hotel).",
+      "location": {
+        "lat": null,
+        "lng": null,
+        "maps_query": "MIMARU Tokyo Shinjuku West, Tokyo, Japan"
+      }
+    }
+  ],
+  "rentals": [
+    {
+      "id": "rent-01",
+      "type": "car",
+      "pickup": {
+        "location": null,
+        "date": null
+      },
+      "return": {
+        "location": "Koriyama",
+        "date": "2026-11-06",
+        "time": "11:00",
+        "approximate": true
+      },
+      "notes": "Pick-up is not specified in the source. Drive legs first appear on Day 2 (Oct 29) and the last drive is Day 9 (Nov 5)."
+    }
+  ],
+  "days": [
+    {
+      "id": "day-01",
+      "day_number": 1,
+      "date": "2026-10-28",
+      "weekday": "Wednesday",
+      "day_type": "arrival",
+      "travel_city": "Aomori",
+      "sleep_city": "Aomori",
+      "accommodation_id": "acc-01",
+      "flight_ids": [
+        "fl-01"
+      ],
+      "transport": [
+        {
+          "id": "d01-t01",
+          "order": 1,
+          "mode": "train",
+          "from": "Narita Airport",
+          "to": "Tokyo",
+          "duration_minutes": null,
+          "note": "Narita Express (N'EX)"
+        },
+        {
+          "id": "d01-t02",
+          "order": 2,
+          "mode": "shinkansen",
+          "from": "Tokyo",
+          "to": "Shin-Aomori",
+          "duration_minutes": 191,
+          "note": "3 hr 11 min"
+        }
+      ],
+      "sightseeing": [
+        {
+          "id": "d01-s01",
+          "order": 1,
+          "name": "Nebuta Museum WA RASSE",
+          "category": "museum",
+          "note": null,
+          "location": {
+            "lat": 40.829572,
+            "lng": 140.735946,
+            "maps_query": "Nebuta Museum WA RASSE, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d01-s02",
+          "order": 2,
+          "name": "A-Factory",
+          "category": "shopping",
+          "note": "Apple pie",
+          "location": {
+            "lat": 40.830221,
+            "lng": 140.735161,
+            "maps_query": "A-Factory, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d01-s03",
+          "order": 3,
+          "name": "Toys R Us at Ciina Ciina mall",
+          "category": "shopping",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d01-s04",
+          "order": 4,
+          "name": "Aomori Bay",
+          "category": "nature",
+          "note": "Anri bakery",
+          "location": null
+        },
+        {
+          "id": "d01-s05",
+          "order": 5,
+          "name": "Aomori Bank Memorial Museum",
+          "category": "museum",
+          "note": null,
+          "location": {
+            "lat": 40.602916,
+            "lng": 140.468564,
+            "maps_query": "Aomori Bank Memorial Museum, Aomori, Japan"
+          }
+        }
+      ],
+      "food": [
+        {
+          "id": "d01-f01",
+          "order": 1,
+          "name": "Osanai",
+          "meal": "unspecified",
+          "cuisine": null,
+          "note": null,
+          "location": {
+            "lat": 40.828052,
+            "lng": 140.736006,
+            "maps_query": "Osanai, Aomori, Japan"
+          }
+        }
+      ],
+      "todos": [],
+      "notes": [],
+      "source_text": {
+        "travel": "Nex Narita to Tokyo Shinkanzen to Shin-Aomori (3hr 11min",
+        "sightseeing": "Nebuta Museum WA RASSE, A Factory (Apple Pie), ToyRus at Ciina Ciina mall, Aomori bay (Anri bakery), Aomori Bank memorial museum )",
+        "food": "Osanai",
+        "hotel": "Home in Aomori"
+      },
+      "location": {
+        "lat": 40.822734,
+        "lng": 140.746924,
+        "maps_query": "Aomori city, Aomori Prefecture"
+      }
+    },
+    {
+      "id": "day-02",
+      "day_number": 2,
+      "date": "2026-10-29",
+      "weekday": "Thursday",
+      "day_type": "sightseeing",
+      "travel_city": "Hirosaki",
+      "sleep_city": "Aomori",
+      "accommodation_id": "acc-01",
+      "flight_ids": [],
+      "transport": [
+        {
+          "id": "d02-t01",
+          "order": 1,
+          "mode": "drive",
+          "from": "Aomori",
+          "to": "Takayama Inari Shrine",
+          "duration_minutes": 60,
+          "note": null
+        },
+        {
+          "id": "d02-t02",
+          "order": 2,
+          "mode": "drive",
+          "from": "Takayama Inari Shrine",
+          "to": "Hirosaki",
+          "duration_minutes": 60,
+          "note": null
+        },
+        {
+          "id": "d02-t03",
+          "order": 3,
+          "mode": "drive",
+          "from": "Hirosaki",
+          "to": "Aomori",
+          "duration_minutes": 60,
+          "note": "Return drive. Source says 'Drive 1 hour mins back'; 60 min assumed."
+        }
+      ],
+      "sightseeing": [
+        {
+          "id": "d02-s01",
+          "order": 1,
+          "name": "Takayama Inari Shrine",
+          "category": "shrine_temple",
+          "note": null,
+          "location": {
+            "lat": 40.937331,
+            "lng": 140.313075,
+            "maps_query": "Takayama Inari Shrine, Hirosaki, Japan"
+          }
+        },
+        {
+          "id": "d02-s02",
+          "order": 2,
+          "name": "Hirosaki Apple Park",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 40.590263,
+            "lng": 140.443261,
+            "maps_query": "Hirosaki Apple Park, Hirosaki, Japan"
+          }
+        },
+        {
+          "id": "d02-s03",
+          "order": 3,
+          "name": "Hirosaki City Library",
+          "category": "other",
+          "note": null,
+          "location": {
+            "lat": 40.602628,
+            "lng": 140.465321,
+            "maps_query": "弘前市立図書館"
+          }
+        },
+        {
+          "id": "d02-s04",
+          "order": 4,
+          "name": "Starbucks",
+          "category": "cafe",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d02-s05",
+          "order": 5,
+          "name": "Nakano Momiji-yama",
+          "category": "nature",
+          "note": "Autumn illumination",
+          "location": null
+        },
+        {
+          "id": "d02-s06",
+          "order": 6,
+          "name": "Shinmachi Street",
+          "category": "town",
+          "note": null,
+          "location": null
+        }
+      ],
+      "food": [
+        {
+          "id": "d02-f01",
+          "order": 1,
+          "name": "Aomori Gyosai Center",
+          "meal": "breakfast",
+          "cuisine": "Sushi",
+          "note": null,
+          "location": {
+            "lat": 40.825912,
+            "lng": 140.735848,
+            "maps_query": "Aomori Gyosai Center, Hirosaki, Japan"
+          }
+        },
+        {
+          "id": "d02-f02",
+          "order": 2,
+          "name": "Hasshoku Center",
+          "meal": "unspecified",
+          "cuisine": "Fish market",
+          "note": null,
+          "needs_review": true,
+          "review_note": "The same 'Hasshoku center - fish market' line also appears on Day 3. Confirm it is intended on Day 2 and which meal it is.",
+          "location": null
+        },
+        {
+          "id": "d02-f03",
+          "order": 3,
+          "name": "Hirosaki Apple Park",
+          "meal": "lunch",
+          "cuisine": null,
+          "note": "Lunch at Apple Park",
+          "location": {
+            "lat": 40.590263,
+            "lng": 140.443261,
+            "maps_query": "Hirosaki Apple Park, Hirosaki, Japan"
+          }
+        },
+        {
+          "id": "d02-f04",
+          "order": 4,
+          "name": "Taisho Roman Tearoom",
+          "meal": "snack",
+          "cuisine": "Apple pie",
+          "note": "Afternoon",
+          "location": {
+            "lat": 40.603577,
+            "lng": 140.461394,
+            "maps_query": "Taisho Roman Tearoom, Hirosaki, Japan"
+          }
+        },
+        {
+          "id": "d02-f05",
+          "order": 5,
+          "name": "Robata to Oden Koronagi",
+          "meal": "dinner",
+          "cuisine": "Robata / oden",
+          "note": null,
+          "location": null
+        }
+      ],
+      "todos": [],
+      "notes": [],
+      "source_text": {
+        "travel": "Drive 1 hr to Takayama Inari, Drive 1 hr to Hirosaki",
+        "sightseeing": "Takayama Inari Shrine, Hirosaki Apple Park, Hirosaki city library, Starbucks,  Nakano Momiji-yama (illumination), Shinmachi Street",
+        "food": "Breakfast - Aomori Gyosai Center - Sushi, Hasshoku center - fish market lunch- at Apple Park afternoon Taisho Roman Tearoom - apple pie Dinner- Robata to oden koronagi",
+        "travel_2": "Drive 1 hour mins back",
+        "hotel": "Home in Aomori"
+      },
+      "location": {
+        "lat": 40.822734,
+        "lng": 140.746924,
+        "maps_query": "Aomori city, Aomori Prefecture"
+      }
+    },
+    {
+      "id": "day-03",
+      "day_number": 3,
+      "date": "2026-10-30",
+      "weekday": "Friday",
+      "day_type": "road_trip",
+      "travel_city": "South Aomori",
+      "sleep_city": "Akita Yuze",
+      "accommodation_id": "acc-02",
+      "flight_ids": [],
+      "transport": [
+        {
+          "id": "d03-t01",
+          "order": 1,
+          "mode": "drive",
+          "from": "Aomori",
+          "to": "Hakkoda",
+          "duration_minutes": 30,
+          "note": null
+        },
+        {
+          "id": "d03-t02",
+          "order": 2,
+          "mode": "drive",
+          "from": "Hakkoda",
+          "to": "Jogakura Bridge",
+          "duration_minutes": 8,
+          "note": null
+        },
+        {
+          "id": "d03-t03",
+          "order": 3,
+          "mode": "drive",
+          "from": "Jogakura Bridge",
+          "to": "Tsutanuma Pond",
+          "duration_minutes": 25,
+          "note": null
+        },
+        {
+          "id": "d03-t04",
+          "order": 4,
+          "mode": "drive",
+          "from": "Tsutanuma Pond",
+          "to": "Lake Towada",
+          "duration_minutes": 40,
+          "note": null
+        },
+        {
+          "id": "d03-t05",
+          "order": 5,
+          "mode": "drive",
+          "from": "Lake Towada",
+          "to": "Akita Yuze",
+          "duration_minutes": 80,
+          "note": "Source: 'Drive 1hr 20 mins'"
+        }
+      ],
+      "sightseeing": [
+        {
+          "id": "d03-s01",
+          "order": 1,
+          "name": "Hakkoda Ropeway",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 40.678382,
+            "lng": 140.845338,
+            "maps_query": "Hakkoda Ropeway, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d03-s02",
+          "order": 2,
+          "name": "Jogakura Bridge",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 40.650643,
+            "lng": 140.825928,
+            "maps_query": "Jogakura Bridge, Hirosaki, Japan"
+          }
+        },
+        {
+          "id": "d03-s03",
+          "order": 3,
+          "name": "Tsutanuma Pond",
+          "category": "nature",
+          "note": null,
+          "location": {
+            "lat": 40.600879,
+            "lng": 140.950104,
+            "maps_query": "Tsutanuma Pond, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d03-s04",
+          "order": 4,
+          "name": "Oirase",
+          "category": "nature",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d03-s05",
+          "order": 5,
+          "name": "Towada Lake Cruise",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 40.426785,
+            "lng": 140.893484,
+            "maps_query": "Towada Lake Cruise, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d03-s06",
+          "order": 6,
+          "name": "Roadside Station Oyu",
+          "category": "rest_stop",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d03-s07",
+          "order": 7,
+          "name": "Kazunoshi Sogo Undo Koen",
+          "category": "park",
+          "note": "Playground near the hotel",
+          "note_original": "ใกล้ๆโรงแรม มีสนามเด็กเล่น",
+          "location": {
+            "lat": 40.188896,
+            "lng": 140.818541,
+            "maps_query": "Kazunoshi Sogo Undo Koen, Kazuno, Japan"
+          }
+        }
+      ],
+      "food": [
+        {
+          "id": "d03-f01",
+          "order": 1,
+          "name": "Aomori Gyosai Center",
+          "meal": "breakfast",
+          "cuisine": "Sushi",
+          "note": null,
+          "location": {
+            "lat": 40.825912,
+            "lng": 140.735848,
+            "maps_query": "Aomori Gyosai Center, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d03-f02",
+          "order": 2,
+          "name": "Hasshoku Center",
+          "meal": "unspecified",
+          "cuisine": "Fish market",
+          "note": null,
+          "needs_review": true,
+          "review_note": "Duplicate of the Day 2 line; confirm it is intended on this day.",
+          "location": {
+            "lat": 40.526401,
+            "lng": 141.453495,
+            "maps_query": "Hasshoku Center, Aomori, Japan"
+          }
+        }
+      ],
+      "todos": [],
+      "notes": [
+        "Dinner is included at the hotel (half-board)."
+      ],
+      "source_text": {
+        "travel": "Drive 30 minutes to Hakkoda, Drive 8 mins to Jogakura, Drive 25 mins to Tsutanuma Pond. Drive 40 mins to Lake Towada",
+        "sightseeing": "Hakkoda Ropeway, Jogakura Bridge, Tsutanuma Pond, Oirase, Towada Lake Cruise, roadside station oyu, ใกล้ๆโรงแรม มีสนามเด็กเล่น kazunoshi Sogo Undo Koen",
+        "food": "Breakfast - Aomori Gyosai Center - Sushi, Hasshoku center - fish market ",
+        "travel_2": "Drive 1hr 20 mins ",
+        "hotel": "Kamenoi Hotel Akita Yuze (half-board)"
+      },
+      "location": {
+        "lat": 40.458655,
+        "lng": 140.87113,
+        "maps_query": "Lake Towada"
+      }
+    },
+    {
+      "id": "day-04",
+      "day_number": 4,
+      "date": "2026-10-31",
+      "weekday": "Saturday",
+      "day_type": "road_trip",
+      "travel_city": "Road Trip",
+      "sleep_city": "Nyuto Onsen",
+      "accommodation_id": "acc-03",
+      "flight_ids": [],
+      "transport": [
+        {
+          "id": "d04-t01",
+          "order": 1,
+          "mode": "drive",
+          "from": "Akita Yuze",
+          "to": "Nyuto Onsen",
+          "duration_minutes": 100,
+          "note": "Source: 'Drive 1 hr 40 mins'"
+        }
+      ],
+      "sightseeing": [
+        {
+          "id": "d04-s01",
+          "order": 1,
+          "name": "Hachimantai Onuma Pond",
+          "category": "nature",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d04-s02",
+          "order": 2,
+          "name": "Goshogake Onsen",
+          "category": "onsen",
+          "note": null,
+          "location": {
+            "lat": 39.975197,
+            "lng": 140.80025,
+            "maps_query": "Goshogake Onsen, Hachimantai, Japan"
+          }
+        },
+        {
+          "id": "d04-s03",
+          "order": 3,
+          "name": "Tamagawa Onsen",
+          "category": "onsen",
+          "note": null,
+          "location": {
+            "lat": 39.963154,
+            "lng": 140.72446,
+            "maps_query": "Tamagawa Onsen, Senboku, Japan"
+          }
+        },
+        {
+          "id": "d04-s04",
+          "order": 4,
+          "name": "Lake Tazawa",
+          "category": "nature",
+          "note": null,
+          "location": {
+            "lat": 39.724837,
+            "lng": 140.663273,
+            "maps_query": "Lake Tazawa, Akita, Japan"
+          }
+        }
+      ],
+      "food": [],
+      "todos": [],
+      "notes": [
+        "Dinner is included at the hotel (half-board)."
+      ],
+      "source_text": {
+        "travel": "Drive 1 hr 40 mins",
+        "sightseeing": "Hachimantai Onuma Pond, Goshogake Onsen, Tamagawa Onsen, Lake Tazawa",
+        "hotel": "Cerulean Resort Aoni (half-board)"
+      },
+      "location": {
+        "lat": 39.724837,
+        "lng": 140.663273,
+        "maps_query": "Lake Tazawa"
+      }
+    },
+    {
+      "id": "day-05",
+      "day_number": 5,
+      "date": "2026-11-01",
+      "weekday": "Sunday",
+      "day_type": "road_trip",
+      "travel_city": "Akita",
+      "sleep_city": "Morioka",
+      "accommodation_id": "acc-04",
+      "flight_ids": [],
+      "transport": [],
+      "sightseeing": [
+        {
+          "id": "d05-s01",
+          "order": 1,
+          "name": "Tsurunoyu Onsen",
+          "category": "onsen",
+          "note": null,
+          "location": {
+            "lat": 39.790614,
+            "lng": 140.774213,
+            "maps_query": "Tsurunoyu Onsen, Senboku, Japan"
+          }
+        },
+        {
+          "id": "d05-s02",
+          "order": 2,
+          "name": "Kakunodate",
+          "category": "town",
+          "note": null,
+          "location": {
+            "lat": 39.591743,
+            "lng": 140.57118,
+            "maps_query": "Kakunodate, Senboku, Japan"
+          }
+        },
+        {
+          "id": "d05-s03",
+          "order": 3,
+          "name": "Enishi",
+          "category": "attraction",
+          "note": "You can play with Akita dogs for 200 yen",
+          "note_original": "ที่ enishi มีให้เล่นกับหมาอะคิตะ 200•เยน",
+          "location": null
+        }
+      ],
+      "food": [
+        {
+          "id": "d05-f01",
+          "order": 1,
+          "name": "Sakura no Sato (Kakunodate)",
+          "meal": "unspecified",
+          "cuisine": null,
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d05-f02",
+          "order": 2,
+          "name": "Sato Yosuke",
+          "meal": "unspecified",
+          "cuisine": null,
+          "note": null,
+          "location": {
+            "lat": 39.596951,
+            "lng": 140.562003,
+            "maps_query": "Sato Yosuke, Akita, Japan"
+          }
+        },
+        {
+          "id": "d05-f03",
+          "order": 3,
+          "name": "Michinoku Akita Pudding Shop",
+          "meal": "snack",
+          "cuisine": "Pudding / dessert",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d05-f04",
+          "order": 4,
+          "name": "Seijiro Sushi",
+          "meal": "unspecified",
+          "cuisine": "Sushi",
+          "note": "Conveyor-belt sushi",
+          "note_original": "สายพาน",
+          "location": null
+        }
+      ],
+      "todos": [],
+      "notes": [],
+      "source_text": {
+        "sightseeing": "Tsurunoyu Onsen , Kakunodate>>ที่ enishi มีให้เล่นกับหมาอะคิตะ 200•เยน",
+        "food": "Sakura no Sato (Kakunodate), Sato yosuke , michinoku Akita pudding shop, Seijiro Sushi สายพาน,",
+        "hotel": "Daiwa Roynet Morioka Ekimae"
+      },
+      "location": {
+        "lat": 39.702133,
+        "lng": 141.15454,
+        "maps_query": "Morioka"
+      }
+    },
+    {
+      "id": "day-06",
+      "day_number": 6,
+      "date": "2026-11-02",
+      "weekday": "Monday",
+      "day_type": "sightseeing",
+      "travel_city": "Morioka",
+      "sleep_city": "Morioka",
+      "accommodation_id": "acc-04",
+      "flight_ids": [],
+      "transport": [],
+      "sightseeing": [
+        {
+          "id": "d06-s01",
+          "order": 1,
+          "name": "Koiwai Farm",
+          "category": "farm",
+          "note": null,
+          "location": {
+            "lat": 39.752786,
+            "lng": 141.019067,
+            "maps_query": "Koiwai Farm, Morioka, Japan"
+          }
+        },
+        {
+          "id": "d06-s02",
+          "order": 2,
+          "name": "Morioka JR Station",
+          "category": "transit_hub",
+          "note": null,
+          "location": {
+            "lat": 39.7015,
+            "lng": 141.136554,
+            "maps_query": "Morioka JR Station, Morioka, Japan"
+          }
+        },
+        {
+          "id": "d06-s03",
+          "order": 3,
+          "name": "Morioka Kippushi",
+          "category": "other",
+          "note": null,
+          "needs_review": true,
+          "review_note": "Unclear what this refers to; kept as written.",
+          "location": null
+        }
+      ],
+      "food": [
+        {
+          "id": "d06-f01",
+          "order": 1,
+          "name": "Pyon Pyon Sya",
+          "meal": "unspecified",
+          "cuisine": "Reimen (cold noodles)",
+          "note": "Listed as 'Remen'",
+          "location": {
+            "lat": 39.708548,
+            "lng": 141.11114,
+            "maps_query": "Pyon Pyon Sya, Morioka, Japan"
+          }
+        },
+        {
+          "id": "d06-f02",
+          "order": 2,
+          "name": "Azumaya Honten",
+          "meal": "unspecified",
+          "cuisine": null,
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d06-f03",
+          "order": 3,
+          "name": "Fukuda Pan",
+          "meal": "unspecified",
+          "cuisine": "Bakery",
+          "note": null,
+          "location": {
+            "lat": 39.708226,
+            "lng": 141.142075,
+            "maps_query": "Fukuda Pan, Morioka, Japan"
+          }
+        },
+        {
+          "id": "d06-f04",
+          "order": 4,
+          "name": "Hamburg Restaurant Bell",
+          "meal": "unspecified",
+          "cuisine": "Hamburg steak",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d06-f05",
+          "order": 5,
+          "name": "Pano Pano",
+          "meal": "takeaway",
+          "cuisine": "Bread",
+          "note": "Buy bread today for tomorrow's breakfast",
+          "location": null
+        }
+      ],
+      "todos": [],
+      "notes": [],
+      "source_text": {
+        "sightseeing": "Koiwai Farm, Morioka JR Station, morioka kippushi",
+        "food": "Pyon Pyon Sya (Remen), Azumaya Honten, Fukuda pan, Hamburg restaurant bell, Buy Pano Pano bread for tmr morning",
+        "hotel": "Daiwa Roynet Morioka Ekimae"
+      },
+      "location": {
+        "lat": 39.702133,
+        "lng": 141.15454,
+        "maps_query": "Morioka"
+      }
+    },
+    {
+      "id": "day-07",
+      "day_number": 7,
+      "date": "2026-11-03",
+      "weekday": "Tuesday",
+      "day_type": "road_trip",
+      "travel_city": "Road Trip",
+      "sleep_city": "Sendai",
+      "accommodation_id": "acc-05",
+      "flight_ids": [],
+      "transport": [],
+      "sightseeing": [
+        {
+          "id": "d07-s01",
+          "order": 1,
+          "name": "Chusonji Temple",
+          "category": "shrine_temple",
+          "note": null,
+          "location": {
+            "lat": 39.000941,
+            "lng": 141.10207,
+            "maps_query": "Chusonji Temple, Hiraizumi, Japan"
+          }
+        },
+        {
+          "id": "d07-s02",
+          "order": 2,
+          "name": "Geibikei Gorge & Pokemon Train",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 38.988779,
+            "lng": 141.253238,
+            "maps_query": "Geibikei Gorge & Pokemon Train, Ichinoseki, Japan"
+          }
+        },
+        {
+          "id": "d07-s03",
+          "order": 3,
+          "name": "Parco Sendai",
+          "category": "shopping",
+          "note": "All Character Shop",
+          "location": {
+            "lat": 38.261932,
+            "lng": 140.881412,
+            "maps_query": "Sendai PARCO"
+          }
+        }
+      ],
+      "food": [
+        {
+          "id": "d07-f01",
+          "order": 1,
+          "name": "Rest area along the way",
+          "meal": "lunch",
+          "cuisine": null,
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d07-f02",
+          "order": 2,
+          "name": "Kaku Sendai",
+          "meal": "unspecified",
+          "cuisine": "Beef",
+          "note": null,
+          "note_original": "วัว",
+          "needs_review": true,
+          "review_note": "May be the same restaurant as the next item (Gyutan Cuisine Kaku).",
+          "location": null
+        },
+        {
+          "id": "d07-f03",
+          "order": 3,
+          "name": "Gyutan Cuisine Kaku Brandome Main Store",
+          "meal": "unspecified",
+          "cuisine": "Gyutan (beef tongue)",
+          "note": null,
+          "needs_review": true,
+          "review_note": "Possible duplicate of Kaku Sendai; name kept as written.",
+          "location": {
+            "lat": 38.261387,
+            "lng": 140.872164,
+            "maps_query": "Gyutan Cuisine Kaku Brandome Main Store, Miyagi, Japan"
+          }
+        },
+        {
+          "id": "d07-f04",
+          "order": 4,
+          "name": "Zunda Shake",
+          "meal": "snack",
+          "cuisine": "Edamame shake",
+          "note": "Blended edamame (zunda)",
+          "note_original": "ถั่วแระปั่น",
+          "location": null
+        },
+        {
+          "id": "d07-f05",
+          "order": 5,
+          "name": "Shiohamako",
+          "meal": "unspecified",
+          "cuisine": "Sushi",
+          "note": "Sushi shop",
+          "note_original": "ร้านซูชิ",
+          "location": null
+        }
+      ],
+      "todos": [],
+      "notes": [],
+      "source_text": {
+        "sightseeing": "Chusonji Temple, Geibikei Gorge & Pokemon Train, Parco Sendai (All Character Shop)",
+        "food": "Lunch rest area along the way, Kaku Sendai (วัว), Gyutan Cuisine Kaku Brandome Main Store, Zunda Shake ถั่วแระปั่น, ร้านซูชิ shiohamako",
+        "hotel": "Rakuten STAY x EAGLES 202 with Roof balcony"
+      },
+      "location": {
+        "lat": 39.000941,
+        "lng": 141.10207,
+        "maps_query": "Chuson-ji"
+      }
+    },
+    {
+      "id": "day-08",
+      "day_number": 8,
+      "date": "2026-11-04",
+      "weekday": "Wednesday",
+      "day_type": "sightseeing",
+      "travel_city": "Sendai",
+      "sleep_city": "Sendai",
+      "accommodation_id": "acc-05",
+      "flight_ids": [],
+      "transport": [],
+      "sightseeing": [
+        {
+          "id": "d08-s01",
+          "order": 1,
+          "name": "Michinoku Lakeside",
+          "category": "nature",
+          "note": null,
+          "location": {
+            "lat": 38.181484,
+            "lng": 140.66692,
+            "maps_query": "みちのく杜の湖畔公園"
+          }
+        },
+        {
+          "id": "d08-s02",
+          "order": 2,
+          "name": "Sendai Daikannon",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 38.300502,
+            "lng": 140.823634,
+            "maps_query": "Sendai Daikannon, Sendai, Japan"
+          }
+        },
+        {
+          "id": "d08-s03",
+          "order": 3,
+          "name": "JR Fruit Park Sendai",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 38.218398,
+            "lng": 140.977708,
+            "maps_query": "JR Fruit Park Sendai, Sendai, Japan"
+          }
+        },
+        {
+          "id": "d08-s04",
+          "order": 4,
+          "name": "Clis Road",
+          "category": "shopping",
+          "note": null,
+          "location": {
+            "lat": 38.261321,
+            "lng": 140.876433,
+            "maps_query": "Clis Road, Sendai, Japan"
+          }
+        }
+      ],
+      "food": [
+        {
+          "id": "d08-f01",
+          "order": 1,
+          "name": "Mori no Ichiba",
+          "meal": "unspecified",
+          "cuisine": "Fish market",
+          "note": null,
+          "note_original": "ตลาดปลา",
+          "location": {
+            "lat": 38.255443,
+            "lng": 140.933302,
+            "maps_query": "Mori no Ichiba, Sendai, Japan"
+          }
+        },
+        {
+          "id": "d08-f02",
+          "order": 2,
+          "name": "Taiyaki Taikishi",
+          "meal": "snack",
+          "cuisine": "Taiyaki",
+          "note": null,
+          "location": null
+        }
+      ],
+      "todos": [],
+      "notes": [],
+      "source_text": {
+        "sightseeing": "Michinoku Lakeside, Sendai dai Kannon, JR Fruit Park Sendai, Clis Road",
+        "food": "Mori no Ichiba ตลาดปลา,Taiyaki taikishi",
+        "hotel": "Rakuten STAY x EAGLES 202 with Roof balcony"
+      },
+      "location": {
+        "lat": 38.267755,
+        "lng": 140.86915,
+        "maps_query": "Sendai"
+      }
+    },
+    {
+      "id": "day-09",
+      "day_number": 9,
+      "date": "2026-11-05",
+      "weekday": "Thursday",
+      "day_type": "road_trip",
+      "travel_city": "Bandai Skyline",
+      "sleep_city": "Koriyama",
+      "accommodation_id": "acc-06",
+      "flight_ids": [],
+      "transport": [],
+      "sightseeing": [
+        {
+          "id": "d09-s01",
+          "order": 1,
+          "name": "Bandai Azuma Skyline",
+          "category": "scenic_route",
+          "note": "Described in the plan as the most beautiful road in Japan",
+          "location": null
+        },
+        {
+          "id": "d09-s02",
+          "order": 2,
+          "name": "Goshikinuma Pond",
+          "category": "nature",
+          "note": "Check how to get there",
+          "location": {
+            "lat": 37.740628,
+            "lng": 140.243175,
+            "maps_query": "Goshikinuma Pond, Fukushima, Japan"
+          }
+        }
+      ],
+      "food": [],
+      "todos": [
+        "Check how to get to Goshikinuma Pond"
+      ],
+      "notes": [],
+      "source_text": {
+        "sightseeing": "Bandai Azuma Skyline (Most Beauiful Road in Japan), Goshikinuma pond (Check how to go)",
+        "hotel": "Daiwa Roynet Koriyama"
+      },
+      "location": {
+        "lat": 37.723424,
+        "lng": 140.25429,
+        "maps_query": "Bandai-Azuma Skyline"
+      }
+    },
+    {
+      "id": "day-10",
+      "day_number": 10,
+      "date": "2026-11-06",
+      "weekday": "Friday",
+      "day_type": "transit",
+      "travel_city": "Koriyama",
+      "sleep_city": "Tokyo",
+      "accommodation_id": "acc-07",
+      "flight_ids": [],
+      "transport": [
+        {
+          "id": "d10-t01",
+          "order": 1,
+          "mode": "car_return",
+          "from": null,
+          "to": "Koriyama",
+          "duration_minutes": null,
+          "time": "11:00",
+          "note": "Return car rental around 11am"
+        },
+        {
+          "id": "d10-t02",
+          "order": 2,
+          "mode": "shinkansen",
+          "from": "Koriyama",
+          "to": "Tokyo",
+          "duration_minutes": null,
+          "note": null
+        }
+      ],
+      "sightseeing": [],
+      "food": [
+        {
+          "id": "d10-f01",
+          "order": 1,
+          "name": "Breakfast in Koriyama",
+          "meal": "breakfast",
+          "cuisine": null,
+          "note": null,
+          "location": null
+        }
+      ],
+      "todos": [],
+      "notes": [
+        "Travel day"
+      ],
+      "source_text": {
+        "travel": "Return car rental around 11am",
+        "sightseeing": "Travel day",
+        "food": "Breakfast at Koriyama",
+        "travel_2": "Shinkansen",
+        "hotel": "MIMARU Tokyo Shinjuku West"
+      },
+      "location": {
+        "lat": 35.67686,
+        "lng": 139.763895,
+        "maps_query": "Tokyo"
+      }
+    },
+    {
+      "id": "day-11",
+      "day_number": 11,
+      "date": "2026-11-07",
+      "weekday": "Saturday",
+      "day_type": "sightseeing",
+      "travel_city": "Tokyo",
+      "sleep_city": "Tokyo",
+      "accommodation_id": "acc-07",
+      "flight_ids": [],
+      "transport": [],
+      "sightseeing": [
+        {
+          "id": "d11-s01",
+          "order": 1,
+          "name": "Sanrio Puroland",
+          "category": "theme_park",
+          "note": null,
+          "location": {
+            "lat": 35.624561,
+            "lng": 139.429445,
+            "maps_query": "Sanrio Puroland, Tokyo, Japan"
+          }
+        }
+      ],
+      "food": [
+        {
+          "id": "d11-f01",
+          "order": 1,
+          "name": "Toyama Zushi",
+          "meal": "unspecified",
+          "cuisine": "Sushi",
+          "note": "Ginza",
+          "location": null
+        },
+        {
+          "id": "d11-f02",
+          "order": 2,
+          "name": "Tonkatsu Hajime",
+          "meal": "unspecified",
+          "cuisine": "Tonkatsu",
+          "note": "Nihonbashi",
+          "location": null
+        },
+        {
+          "id": "d11-f03",
+          "order": 3,
+          "name": "Shabu Yamawarau",
+          "meal": "unspecified",
+          "cuisine": "Shabu-shabu",
+          "note": "Ginza",
+          "needs_review": true,
+          "review_note": "Source says 'Gina'; assumed to mean Ginza.",
+          "location": null
+        },
+        {
+          "id": "d11-f04",
+          "order": 4,
+          "name": "Rokumonya",
+          "meal": "unspecified",
+          "cuisine": null,
+          "note": "Shinjuku",
+          "location": null
+        }
+      ],
+      "todos": [],
+      "notes": [],
+      "source_text": {
+        "sightseeing": "Sanrio Puroland",
+        "food": "Toyama zushi at ginza, tonkatsu hajime nihonbashi, Shabu Yamawarau Gina, Rokumonya in Shinjuku",
+        "hotel": "MIMARU Tokyo Shinjuku West"
+      },
+      "location": {
+        "lat": 35.67686,
+        "lng": 139.763895,
+        "maps_query": "Tokyo"
+      }
+    },
+    {
+      "id": "day-12",
+      "day_number": 12,
+      "date": "2026-11-08",
+      "weekday": "Sunday",
+      "day_type": "free",
+      "travel_city": "Tokyo",
+      "sleep_city": "Tokyo",
+      "accommodation_id": "acc-07",
+      "flight_ids": [],
+      "transport": [],
+      "sightseeing": [],
+      "food": [],
+      "todos": [],
+      "notes": [
+        "Free day"
+      ],
+      "source_text": {
+        "sightseeing": "Free day",
+        "hotel": "MIMARU Tokyo Shinjuku West"
+      },
+      "location": {
+        "lat": 35.67686,
+        "lng": 139.763895,
+        "maps_query": "Tokyo"
+      }
+    },
+    {
+      "id": "day-13",
+      "day_number": 13,
+      "date": "2026-11-09",
+      "weekday": "Monday",
+      "day_type": "departure",
+      "travel_city": "Tokyo",
+      "sleep_city": "Home",
+      "accommodation_id": null,
+      "flight_ids": [
+        "fl-02"
+      ],
+      "transport": [],
+      "sightseeing": [
+        {
+          "id": "d13-s01",
+          "order": 1,
+          "name": "Togo Shrine",
+          "category": "shrine_temple",
+          "note": "Sanrio amulets",
+          "needs_review": true,
+          "review_note": "Source says 'Togo shine'; assumed Togo Shrine.",
+          "location": {
+            "lat": 35.671351,
+            "lng": 139.705847,
+            "maps_query": "Togo Shrine, Tokyo, Japan"
+          }
+        },
+        {
+          "id": "d13-s02",
+          "order": 2,
+          "name": "Harajuku",
+          "category": "town",
+          "note": null,
+          "location": {
+            "lat": 35.668705,
+            "lng": 139.705336,
+            "maps_query": "Harajuku, Tokyo, Japan"
+          }
+        }
+      ],
+      "food": [],
+      "todos": [],
+      "notes": [
+        "Return flight ZG051 departs Narita at 17:00."
+      ],
+      "source_text": {
+        "sightseeing": "Togo shine Sanrio amulets harajuku",
+        "hotel": ""
+      },
+      "location": {
+        "lat": 35.67686,
+        "lng": 139.763895,
+        "maps_query": "Tokyo"
+      }
+    }
+  ]
+}

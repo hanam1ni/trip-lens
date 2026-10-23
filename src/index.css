@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+:root { --tabbar-h: calc(57px + env(safe-area-inset-bottom)); }
+html { -webkit-tap-highlight-color: transparent; }
+body { @apply bg-slate-50 text-slate-900 antialiased; }
+.pin { display:flex; align-items:center; justify-content:center; border-radius:9999px; border:2px solid #fff;
+  color:#fff; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.45); white-space:nowrap; }
+.pin-active { outline:3px solid #facc15; }
+.map-screen { height: calc(100vh - var(--tabbar-h)); height: calc(100dvh - var(--tabbar-h)); }
+.skeleton { position:relative; overflow:hidden; background:#e2e8f0; }
+
+@keyframes fade-up { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+@keyframes tick-in { from { opacity:0; transform:translateY(60%); } to { opacity:1; transform:none; } }
+@keyframes pin-in { from { transform:scale(.6); } to { transform:none; } }
+@keyframes pin-pulse { 50% { transform:scale(1.35); } }
+@keyframes shimmer { to { transform:translateX(100%); } }
+@keyframes slide-out-l { to { opacity:0; transform:translateX(-25%); } }
+@keyframes slide-in-r { from { opacity:0; transform:translateX(25%); } }
+@keyframes slide-out-r { to { opacity:0; transform:translateX(25%); } }
+@keyframes slide-in-l { from { opacity:0; transform:translateX(-25%); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation-duration: 200ms; }
+  /* Tab bar stays put across route transitions; its pill animates live instead of cross-fading. */
+  .tabbar { view-transition-name: tabbar; }
+  ::view-transition-old(tabbar) { display: none; }
+  ::view-transition-new(tabbar) { animation: none; }
+  /* Shared day title between Trip list card and day detail; off for ‹ › slides. */
+  .vt-title { view-transition-name: var(--vt); }
+  html[data-dir] .vt-title { view-transition-name: none; }
+  html[data-dir="next"]::view-transition-old(root) { animation: 200ms ease-in both slide-out-l; }
+  html[data-dir="next"]::view-transition-new(root) { animation: 200ms ease-out both slide-in-r; }
+  html[data-dir="prev"]::view-transition-old(root) { animation: 200ms ease-in both slide-out-r; }
+  html[data-dir="prev"]::view-transition-new(root) { animation: 200ms ease-out both slide-in-l; }
+
+  .tab-pill, .tab-icon { transition: transform 200ms ease; }
+  .tab-icon-active { transform: translateY(-2px) scale(1.12); }
+
+  .fade-up { animation: fade-up 220ms ease-out both; animation-delay: calc(var(--i, 0) * 40ms); }
+  .tick-in { animation: tick-in 250ms ease-out 120ms both; }
+
+  .pin-active { animation: pin-in 200ms ease-out both; }
+  .pin-active.pin-pulse { animation: pin-in 200ms ease-out both, pin-pulse 250ms ease-in-out 400ms 1; }
+
+  .skeleton::after { content:""; position:absolute; inset:0; transform:translateX(-100%);
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent); animation: shimmer 1.2s linear infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

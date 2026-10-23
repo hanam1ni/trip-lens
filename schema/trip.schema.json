@@ -1,0 +1,765 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "trip.schema.json",
+  "title": "Trip Plan Database",
+  "description": "Day-by-day trip plan for a web app. Top-level collections are flat and linked by IDs (days -> accommodation_id / flight_ids). Everything inside a day (transport, sightseeing, food) is ordered by its 'order' field.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "meta",
+    "trip",
+    "flights",
+    "accommodations",
+    "rentals",
+    "days"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_file",
+        "generated_on",
+        "parse_notes"
+      ],
+      "properties": {
+        "source_file": {
+          "type": "string"
+        },
+        "generated_on": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "parse_notes": {
+          "type": "array",
+          "description": "Assumptions and ambiguities found while converting the CSV.",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "trip": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "region",
+        "start_date",
+        "end_date",
+        "day_count",
+        "night_count",
+        "default_currency",
+        "home_timezone",
+        "destination_timezone"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "start_date": {
+          "$ref": "#/$defs/isoDate",
+          "description": "First day of the day-by-day plan (Day 1)."
+        },
+        "end_date": {
+          "$ref": "#/$defs/isoDate",
+          "description": "Last day of the plan (departure day)."
+        },
+        "day_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "night_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Nights spent in accommodations in the destination."
+        },
+        "default_currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "home_timezone": {
+          "type": "string"
+        },
+        "destination_timezone": {
+          "type": "string"
+        }
+      }
+    },
+    "flights": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/flight"
+      }
+    },
+    "accommodations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/accommodation"
+      }
+    },
+    "rentals": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/rental"
+      }
+    },
+    "days": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/day"
+      }
+    }
+  },
+  "$defs": {
+    "isoDate": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "isoTime": {
+      "type": "string",
+      "pattern": "^\\d{2}:\\d{2}$"
+    },
+    "localDateTime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_datetime",
+        "timezone"
+      ],
+      "properties": {
+        "local_datetime": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}$",
+          "description": "Wall-clock time at that airport, no offset."
+        },
+        "timezone": {
+          "type": "string",
+          "description": "IANA timezone of that airport."
+        }
+      }
+    },
+    "airport": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "iata",
+        "city"
+      ],
+      "properties": {
+        "iata": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "city": {
+          "type": "string"
+        }
+      }
+    },
+    "location": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Optional, to be filled later for map views.",
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "lng": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maps_query": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "reviewFlags": {
+      "type": "object",
+      "properties": {
+        "needs_review": {
+          "type": "boolean",
+          "description": "True when the source text was ambiguous. Omitted means false."
+        },
+        "review_note": {
+          "type": "string"
+        }
+      }
+    },
+    "flight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "direction",
+        "flight_number",
+        "origin",
+        "destination",
+        "departure",
+        "arrival",
+        "routing",
+        "price",
+        "currency"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "direction": {
+          "enum": [
+            "outbound",
+            "return"
+          ]
+        },
+        "flight_number": {
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/$defs/airport"
+        },
+        "destination": {
+          "$ref": "#/$defs/airport"
+        },
+        "departure": {
+          "$ref": "#/$defs/localDateTime"
+        },
+        "arrival": {
+          "$ref": "#/$defs/localDateTime"
+        },
+        "routing": {
+          "enum": [
+            "direct",
+            "connecting"
+          ]
+        },
+        "price": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-Z]{3}$"
+        },
+        "needs_review": {
+          "type": "boolean"
+        },
+        "review_note": {
+          "type": "string"
+        }
+      }
+    },
+    "accommodation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "city",
+        "type",
+        "check_in",
+        "check_out",
+        "nights",
+        "day_numbers",
+        "meal_plan",
+        "price",
+        "currency"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "hotel",
+            "resort",
+            "onsen_inn",
+            "apartment",
+            "private_home",
+            "other"
+          ]
+        },
+        "check_in": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "check_out": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "nights": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "day_numbers": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Plan days whose night is spent here."
+        },
+        "meal_plan": {
+          "enum": [
+            "half_board",
+            "room_only",
+            null
+          ],
+          "description": "null when the source does not say."
+        },
+        "price": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "notes": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/$defs/location"
+        },
+        "needs_review": {
+          "type": "boolean"
+        },
+        "review_note": {
+          "type": "string"
+        }
+      }
+    },
+    "rental": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "type",
+        "pickup",
+        "return",
+        "notes"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "car"
+          ]
+        },
+        "pickup": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "location",
+            "date"
+          ],
+          "properties": {
+            "location": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "date": {
+              "oneOf": [
+                {
+                  "$ref": "#/$defs/isoDate"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          }
+        },
+        "return": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "location",
+            "date",
+            "time",
+            "approximate"
+          ],
+          "properties": {
+            "location": {
+              "type": "string"
+            },
+            "date": {
+              "$ref": "#/$defs/isoDate"
+            },
+            "time": {
+              "$ref": "#/$defs/isoTime"
+            },
+            "approximate": {
+              "type": "boolean"
+            }
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "transportLeg": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "mode",
+        "from",
+        "to",
+        "duration_minutes",
+        "note"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "mode": {
+          "enum": [
+            "train",
+            "shinkansen",
+            "drive",
+            "car_return",
+            "other"
+          ]
+        },
+        "from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_minutes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Pure travel time as written in the source; excludes time at stops."
+        },
+        "time": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/isoTime"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "needs_review": {
+          "type": "boolean"
+        },
+        "review_note": {
+          "type": "string"
+        }
+      }
+    },
+    "place": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "name",
+        "category",
+        "note"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "museum",
+            "shopping",
+            "nature",
+            "scenic_route",
+            "shrine_temple",
+            "onsen",
+            "town",
+            "park",
+            "attraction",
+            "theme_park",
+            "transit_hub",
+            "farm",
+            "cafe",
+            "rest_stop",
+            "other"
+          ]
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note_original": {
+          "type": "string",
+          "description": "Original-language note when 'note' was translated (Thai in this dataset)."
+        },
+        "location": {
+          "$ref": "#/$defs/location"
+        },
+        "needs_review": {
+          "type": "boolean"
+        },
+        "review_note": {
+          "type": "string"
+        }
+      }
+    },
+    "foodItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "name",
+        "meal",
+        "cuisine",
+        "note"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "name": {
+          "type": "string"
+        },
+        "meal": {
+          "enum": [
+            "breakfast",
+            "lunch",
+            "dinner",
+            "snack",
+            "takeaway",
+            "unspecified"
+          ]
+        },
+        "cuisine": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note_original": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/$defs/location"
+        },
+        "needs_review": {
+          "type": "boolean"
+        },
+        "review_note": {
+          "type": "string"
+        }
+      }
+    },
+    "day": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "day_number",
+        "date",
+        "weekday",
+        "day_type",
+        "travel_city",
+        "sleep_city",
+        "accommodation_id",
+        "flight_ids",
+        "transport",
+        "sightseeing",
+        "food",
+        "todos",
+        "notes",
+        "location"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^day-\\d{2}$"
+        },
+        "day_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "date": {
+          "$ref": "#/$defs/isoDate"
+        },
+        "weekday": {
+          "enum": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ]
+        },
+        "day_type": {
+          "enum": [
+            "arrival",
+            "sightseeing",
+            "road_trip",
+            "transit",
+            "free",
+            "departure"
+          ],
+          "description": "Derived label for UI styling; not a column in the source."
+        },
+        "travel_city": {
+          "type": "string",
+          "description": "Main city/area explored that day."
+        },
+        "sleep_city": {
+          "type": "string",
+          "description": "Where the night is spent ('Home' on the departure day)."
+        },
+        "accommodation_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "FK to accommodations[].id; null when not sleeping in the destination."
+        },
+        "flight_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "FKs to flights[].id that land or depart on this plan day."
+        },
+        "transport": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/transportLeg"
+          }
+        },
+        "sightseeing": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/place"
+          }
+        },
+        "food": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/foodItem"
+          }
+        },
+        "todos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Open action items found in the notes."
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_text": {
+          "type": "object",
+          "description": "Raw CSV cell text, kept for traceability.",
+          "additionalProperties": false,
+          "properties": {
+            "travel": {
+              "type": "string"
+            },
+            "sightseeing": {
+              "type": "string"
+            },
+            "food": {
+              "type": "string"
+            },
+            "travel_2": {
+              "type": "string"
+            },
+            "hotel": {
+              "type": "string"
+            }
+          }
+        },
+        "location": {
+          "$ref": "#/$defs/location",
+          "description": "Area pin for the day; drives overview map and weather."
+        }
+      }
+    }
+  }
+}
