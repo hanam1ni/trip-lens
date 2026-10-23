@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Autumn turn: forest green at the stem, ginkgo gold mid-leaf, maple crimson at the tips -->
+    <linearGradient id="turn" x1="0.2" y1="1" x2="0.8" y2="0">
+      <stop offset="0" stop-color="#2F5D50"/>
+      <stop offset="0.38" stop-color="#E0A526"/>
+      <stop offset="0.72" stop-color="#D2552B"/>
+      <stop offset="1" stop-color="#B83A2E"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#turn)" d="M50 4 57 20 65 16 62 38 76 24 80 32 94 28 88 46 96 50 74 64 78 72 56 68 52 82 52 98 48 98 48 82 44 68 22 72 26 64 4 50 12 46 6 28 20 32 24 24 38 38 35 16 43 20Z"/>
+  <path d="M50 84V30M50 62 30 46M50 62 70 46" fill="none" stroke="#FBF7F2" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

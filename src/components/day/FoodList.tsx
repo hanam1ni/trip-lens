@@ -4,7 +4,7 @@ import { MEAL_ICON, MEAL_ORDER } from "../../lib/style";
 import { titleCase } from "../../lib/format";
 import { Thumb } from "../Thumb";
 import { IconTile } from "../ui";
-import { card, MapsLink, Original, Row, Section } from "./Section";
+import { card, CardActions, Original, Row, Section } from "./Section";
 
 export function FoodList({ day, title = "Where we eat" }: { day: Day; title?: string }) {
   const groups = MEAL_ORDER.map((m) => ({ meal: m, items: day.food.filter((f) => f.meal === m).sort((a, b) => a.order - b.order) })).filter((g) => g.items.length);
@@ -26,7 +26,7 @@ export function FoodList({ day, title = "Where we eat" }: { day: Day; title?: st
                     <Row tile={<IconTile icon={Utensils} tone="accent" />} title={f.name} meta={f.cuisine}>
                       {f.note && <div>{f.note}</div>}
                       <Original text={f.note_original} />
-                      <MapsLink loc={f.location} />
+                      <CardActions name={f.name} loc={f.location} />
                     </Row>
                   </li>
                 ))}

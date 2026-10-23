@@ -31,10 +31,11 @@ const RouteLine = ({ d }: { d: Day }) => (
   <p className="flex items-center gap-2 font-semibold"><Route aria-hidden className="size-4 shrink-0 text-primary" />{d.travel_city} → {d.sleep_city}</p>
 );
 
-function DaySections({ day, from, todos = true }: { day: Day; from: number; todos?: boolean }) {
+function DaySections({ day, from, stay = true }: { day: Day; from: number; stay?: boolean }) {
   let i = from;
   return (
     <>
+      {stay && <Up i={i++}><StayCard day={day} title="Stay" /></Up>}
       {isFreeDay(day) ? <Up i={i++}><FreeDay /></Up> : (
         <>
           <Up i={i++}><TransportList day={day} /></Up>
@@ -42,8 +43,7 @@ function DaySections({ day, from, todos = true }: { day: Day; from: number; todo
           <Up i={i++}><FoodList day={day} title="Eat" /></Up>
         </>
       )}
-      <Up i={i++}><StayCard day={day} title="Stay" /></Up>
-      <Up i={i++}><NotesList day={day} todos={todos} /></Up>
+      <Up i={i++}><NotesList day={day} /></Up>
     </>
   );
 }
@@ -109,8 +109,9 @@ export function Today() {
                 </Sheet>
               </div>
             </Up>
-            <Up i={1}><HeadsUp day={day} /></Up>
-            <DaySections day={day} from={2} todos={false} />
+            <Up i={1}><StayCard day={day} title="Stay" /></Up>
+            <Up i={2}><HeadsUp day={day} /></Up>
+            <DaySections day={day} from={3} stay={false} />
             <Up i={8}><Link to={`/map?focus=${day.day_number}`} viewTransition className={BTN_SOFT}><MapIcon aria-hidden className="size-4" />View today on map</Link></Up>
             {st.next && (
               <Up i={9}>

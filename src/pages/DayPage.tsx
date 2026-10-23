@@ -74,6 +74,8 @@ export function DayPage() {
           </Sheet>
         </div>
 
+        <StayCard day={day} />
+
         {isFreeDay(day) ? <FreeDay /> : (
           <>
             <TransportList day={day} />
@@ -81,8 +83,6 @@ export function DayPage() {
             <FoodList day={day} />
           </>
         )}
-
-        <StayCard day={day} />
 
         {acc && flights.length > 0 && (
           <Section title="Flights">{flights.map((f) => <FlightCard key={f.id} f={f} />)}</Section>

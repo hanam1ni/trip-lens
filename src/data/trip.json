@@ -178,7 +178,6 @@
       "meal_plan": null,
       "price": null,
       "currency": "JPY",
-      "notes": "Room 202 with roof balcony. Type 'apartment' is inferred from the Rakuten STAY brand.",
       "location": {
         "lat": null,
         "lng": null,
@@ -221,7 +220,6 @@
       "meal_plan": null,
       "price": null,
       "currency": "JPY",
-      "notes": "Type 'apartment' is inferred from the MIMARU brand (apartment-style hotel).",
       "location": {
         "lat": null,
         "lng": null,

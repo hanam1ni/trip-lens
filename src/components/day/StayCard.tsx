@@ -5,7 +5,7 @@ import { fmtDate, titleCase } from "../../lib/format";
 import { Thumb } from "../Thumb";
 import { FlightCard } from "../FlightCard";
 import { IconTile, InfoTile, Pill } from "../ui";
-import { card, MapsLink, Row, Section } from "./Section";
+import { card, CardActions, Row, Section } from "./Section";
 
 /** Accommodation for the night, or the return flight on a day without one. */
 export function StayCard({ day, title = "Where we stay" }: { day: Day; title?: string }) {
@@ -30,7 +30,7 @@ export function StayCard({ day, title = "Where we stay" }: { day: Day; title?: s
           <InfoTile label="Check-out">{fmtDate(acc.check_out, { weekday: "short", day: "numeric", month: "short" })}</InfoTile>
         </div>
         {acc.notes && <div className="mt-3 text-xs text-muted">{acc.notes}</div>}
-        <MapsLink loc={acc.location} />
+        <CardActions name={acc.name} loc={acc.location} />
       </div>
     </Section>
   );
