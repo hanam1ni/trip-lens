@@ -35,6 +35,11 @@ const QUERY = {
   "d02-s03": ["Hirosaki City Library", "弘前市立図書館"],
   "d03-s05": ["Lake Towada"],
 };
+// Hand-picked Commons files (owner-approved), used as-is without the name/location checks.
+const MANUAL = {
+  "d05-s01": { file: "Tsurunoyu Onsen 01.jpg", wikidata_id: "Q11675866" }, // Category:Tsurunoyu Onsen (Akita)
+  "d09-s02": { file: "260731 Yanaginuma Goshikinuma Kitashiobara Fukushima pref Japan01s3.jpg", wikidata_id: null }, // Urabandai, not Nikko's Goshiki Pond
+};
 // Natural/large features get the looser 5 km radius.
 const LARGE = new Set(["nature", "scenic_route", "onsen", "park", "town"]);
 
@@ -194,6 +199,14 @@ for (const it of items) {
   if (SKIP[it.id]) { report.push(`SKIP  ${it.id} | ${it.name} | ${SKIP[it.id]}`); continue; }
   if (!force && manifest[it.id] && existsSync(new URL(manifest[it.id].file, OUT_DIR))) { report.push(`KEEP  ${it.id} | ${it.name} | already present`); continue; }
   try {
+    if (MANUAL[it.id]) {
+      if (dry) { report.push(`WOULD ${it.id} | ${it.name} | manual | ${MANUAL[it.id].file}`); continue; }
+      const m = await fetchImage(MANUAL[it.id].file, it.id);
+      manifest[it.id] = { file: m.file, source_page: m.source_page, author: m.author, license: m.license, license_url: m.license_url, wikidata_id: MANUAL[it.id].wikidata_id };
+      saveManifest();
+      report.push(`OK    ${it.id} | ${it.name} | manual | ${m.file} ${m.bytes}B ${m.license} / ${m.author}`);
+      continue;
+    }
     const r = await decide(it);
     if (!r.ok) { report.push(`SKIP  ${it.id} | ${it.name} | ${r.reason}${r.log?.length ? " | seen: " + r.log.join("; ") : ""}`); continue; }
     const g = r.ok;

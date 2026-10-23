@@ -30,5 +30,93 @@
     "license": "CC BY-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "wikidata_id": "Q25104460"
+  },
+  "d03-s01": {
+    "file": "d03-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Hakkoda_Ropeway_2019.jpg",
+    "author": "Marho",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q5640557"
+  },
+  "d03-s02": {
+    "file": "d03-s02.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:J%C5%8Dgakura_Bridge_in_autumn-1.jpg",
+    "author": "Mccunicano",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q95688204"
+  },
+  "d04-s04": {
+    "file": "d04-s04.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg",
+    "author": "(Tea-making tea) 掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q174309"
+  },
+  "d05-s01": {
+    "file": "d05-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Tsurunoyu_Onsen_01.jpg",
+    "author": "津島修三",
+    "license": "CC BY 2.1 jp",
+    "license_url": "https://creativecommons.org/licenses/by/2.1/jp/deed.en",
+    "wikidata_id": "Q11675866"
+  },
+  "d06-s01": {
+    "file": "d06-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Sheep_pusture_in_Koiwai_Farm.jpg",
+    "author": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q11460030"
+  },
+  "d07-s01": {
+    "file": "d07-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:230728_Chusonji_Hiraizumi_Iwate_pref_Japan01s3.jpg",
+    "author": "663highland",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q2660144"
+  },
+  "d08-s02": {
+    "file": "d08-s02.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Sendai_Daikannon_(1870523730).jpg",
+    "author": "Hideyuki KAMON from Takarazuka / 宝塚市, Hyogo / 兵庫県, Japan / 日本",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "wikidata_id": "Q1621882"
+  },
+  "d09-s02": {
+    "file": "d09-s02.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:260731_Yanaginuma_Goshikinuma_Kitashiobara_Fukushima_pref_Japan01s3.jpg",
+    "author": "663highland",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": null
+  },
+  "d11-s01": {
+    "file": "d11-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Sanrio_Puroland.jpg",
+    "author": "Kakidai",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q1133851"
+  },
+  "d13-s01": {
+    "file": "d13-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Togo-jinja-haiden.jpg",
+    "author": "KENPEI",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "wikidata_id": "Q1384780"
+  },
+  "d13-s02": {
+    "file": "d13-s02.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Harajuku_Station_Tokyo.jpg",
+    "author": "Chris 73",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "wikidata_id": "Q746573"
   }
 }
