@@ -15,7 +15,7 @@ export function MapPage() {
 
   return (
     <div className="map-screen flex flex-col">
-      <TopBar><TopTitle>Map</TopTitle>{focusDay && activeKey && <span className="text-sm text-slate-500">Day {focusDay}</span>}</TopBar>
+      <TopBar><TopTitle>Map</TopTitle>{focusDay && activeKey && <span className="rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold text-primary">Day {focusDay}</span>}</TopBar>
       <div className="relative min-h-0 flex-1">
         {/* key: remount on every navigation to the tab so Leaflet measures a fresh container */}
         <OverviewMap key={navKey} groups={groups} activeKey={activeKey} today={today} className="absolute inset-0" />

@@ -20,10 +20,11 @@ export const fmtDuration = (min: number | null): string | null => {
   return h && m ? `${h}h ${m}m` : h ? `${h}h` : `${m}m`;
 };
 
+export const tzLabel = (tz: string): string => (tz === "Asia/Tokyo" ? "JST" : tz === "Asia/Bangkok" ? "ICT" : tz);
+
 export const fmtLocalDT = (ldt: string, tz: string): string => {
   const [d, t] = ldt.split("T");
-  const label = tz === "Asia/Tokyo" ? "JST" : tz === "Asia/Bangkok" ? "ICT" : tz;
-  return `${fmtDate(d, { weekday: "short", day: "numeric", month: "short" })}, ${t} ${label}`;
+  return `${fmtDate(d, { weekday: "short", day: "numeric", month: "short" })}, ${t} ${tzLabel(tz)}`;
 };
 
 export const titleCase = (s: string): string => s.replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase());

@@ -1,14 +1,51 @@
 @import "tailwindcss";
 @import "leaflet/dist/leaflet.css";
 
-:root { --tabbar-h: calc(57px + env(safe-area-inset-bottom)); }
+/* "Aomori autumn" palette. Tints are pre-mixed over white (11–16%) so text contrast stays predictable. */
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-primary: #b83a2e;
+  --color-primary-soft: #f7e9e8;
+  --color-accent: #e0a526;
+  --color-accent-soft: #faf1dc;
+  --color-accent-ink: #7a5200;
+  --color-secondary: #2f5d50;
+  --color-secondary-soft: #e8edec;
+  --color-paper: #fbf7f2;
+  --color-surface: #ffffff;
+  --color-ink: #2b2420;
+  --color-muted: #7a6e66;
+  --color-neutral-soft: #f4eee7;
+  --color-line: #ede5dc;
+  --shadow-card: 0 1px 2px rgb(74 52 34 / 0.04), 0 8px 24px -8px rgb(74 52 34 / 0.14);
+  --shadow-float: 0 2px 6px rgb(74 52 34 / 0.08), 0 10px 28px -6px rgb(74 52 34 / 0.18);
+}
+
+:root { --tabbar-h: calc(64px + env(safe-area-inset-bottom)); }
 html { -webkit-tap-highlight-color: transparent; }
-body { @apply bg-slate-50 text-slate-900 antialiased; }
+body { @apply bg-paper font-sans text-ink antialiased; }
 .pin { display:flex; align-items:center; justify-content:center; border-radius:9999px; border:2px solid #fff;
-  color:#fff; font-weight:700; font-size:11px; box-shadow:0 1px 4px rgba(0,0,0,.45); white-space:nowrap; }
-.pin-active { outline:3px solid #facc15; }
+  color:#fff; font-weight:700; font-size:11px; box-shadow:0 2px 6px rgb(74 52 34 / .4); white-space:nowrap; }
+.pin svg { width:15px; height:15px; }
+.pin-active { outline:3px solid var(--color-accent); }
 .map-screen { height: calc(100vh - var(--tabbar-h)); height: calc(100dvh - var(--tabbar-h)); }
-.skeleton { position:relative; overflow:hidden; background:#e2e8f0; }
+.skeleton { position:relative; overflow:hidden; background:#efe8e0; }
+
+/* Hero fallback: crimson → deep maple with a gold glow, leaves drawn on top as inline SVG. */
+.hero-art {
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgb(224 165 38 / .55), transparent 55%),
+    linear-gradient(150deg, var(--color-primary) 10%, #8e2c22 60%, #5e1f17);
+}
+
+/* Leaflet: brand font, soft rounded popups and controls. */
+.leaflet-container { font-family: var(--font-sans); background: #efe8e0; }
+.leaflet-popup-content-wrapper { border-radius: 20px; box-shadow: var(--shadow-float); color: var(--color-ink); }
+.leaflet-popup-content { margin: 14px 16px; font-size: 14px; line-height: 1.4; }
+.leaflet-popup-tip { box-shadow: none; }
+.leaflet-container a.leaflet-popup-close-button { top: 6px; right: 6px; width: 32px; height: 32px; font-size: 20px; line-height: 32px; color: var(--color-muted); }
+.leaflet-bar { border: none !important; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow-card); }
+.leaflet-bar a { color: var(--color-ink); }
 
 @keyframes fade-up { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
 @keyframes tick-in { from { opacity:0; transform:translateY(60%); } to { opacity:1; transform:none; } }
@@ -19,6 +56,7 @@ body { @apply bg-slate-50 text-slate-900 antialiased; }
 @keyframes slide-in-r { from { opacity:0; transform:translateX(25%); } }
 @keyframes slide-out-r { to { opacity:0; transform:translateX(25%); } }
 @keyframes slide-in-l { from { opacity:0; transform:translateX(-25%); } }
+@keyframes leaf-sway { 50% { transform: translateY(4px) rotate(8deg); } }
 
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation-duration: 200ms; }
@@ -42,6 +80,8 @@ body { @apply bg-slate-50 text-slate-900 antialiased; }
 
   .pin-active { animation: pin-in 200ms ease-out both; }
   .pin-active.pin-pulse { animation: pin-in 200ms ease-out both, pin-pulse 250ms ease-in-out 400ms 1; }
+
+  .leaf-sway { animation: leaf-sway 6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
 
   .skeleton::after { content:""; position:absolute; inset:0; transform:translateX(-100%);
     background:linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent); animation: shimmer 1.2s linear infinite; }

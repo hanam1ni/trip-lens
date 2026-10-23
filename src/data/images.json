@@ -1,1 +1,34 @@
-{}
+{
+  "d01-s01": {
+    "file": "d01-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Nebuta_Museum_Wa_Rasse_20200621.jpg",
+    "author": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q11275091"
+  },
+  "d01-s02": {
+    "file": "d01-s02.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:A-Factory_20240324.jpg",
+    "author": "掬茶",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q11188584"
+  },
+  "d01-s04": {
+    "file": "d01-s04.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Aomori_Bay_Asamushi_Onsen_Japan01n.jpg",
+    "author": "663highland",
+    "license": "CC BY 2.5",
+    "license_url": "https://creativecommons.org/licenses/by/2.5",
+    "wikidata_id": "Q11662159"
+  },
+  "d02-s01": {
+    "file": "d02-s01.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Takayama_Inari_Shrine.JPG",
+    "author": "D-Chillz",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "wikidata_id": "Q25104460"
+  }
+}

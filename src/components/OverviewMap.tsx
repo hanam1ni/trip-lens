@@ -4,7 +4,9 @@ import L from "leaflet";
 import { Link } from "react-router-dom";
 import { accById, coord, trip, type Coord } from "../data";
 import type { Day } from "../types";
+import { Bed } from "lucide-react";
 import { fmtDate } from "../lib/format";
+import { MAP_ROUTE } from "../lib/style";
 import { Weather } from "./Weather";
 
 export interface PinGroup { key: string; days: Day[]; at: Coord; label: string }
@@ -30,11 +32,10 @@ export const groupKeyForDay = (groups: PinGroup[], n: number): string | null =>
   groups.find((g) => g.days.some((d) => d.day_number === n))?.key ?? null;
 
 function icon(g: PinGroup, active: boolean, pulse: boolean) {
-  const color = "#e11d48";
   const w = g.label.length > 2 ? 46 : 30;
   return L.divIcon({
     className: "",
-    html: `<div class="pin${active ? " pin-active" : ""}${pulse ? " pin-pulse" : ""}" style="background:${color};width:${w}px;height:30px">${g.label}</div>`,
+    html: `<div class="pin${active ? " pin-active" : ""}${pulse ? " pin-pulse" : ""}" style="background:var(--color-primary);width:${w}px;height:30px">${g.label}</div>`,
     iconSize: [w, 30], iconAnchor: [w / 2, 15], popupAnchor: [0, -15],
   });
 }
@@ -64,18 +65,18 @@ export function OverviewMap({ groups, activeKey, today, className }: { groups: P
   return (
     <MapContainer center={[38, 140.5]} zoom={6} scrollWheelZoom dragging touchZoom className={className}>
       <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>' url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Polyline positions={line} pathOptions={{ color: "#475569", weight: 3, dashArray: "6 6" }} />
+      <Polyline positions={line} pathOptions={{ color: MAP_ROUTE, weight: 3, opacity: 0.85, dashArray: "2 8", lineCap: "round" }} />
       {groups.map((g, i) => (
         <Marker key={g.key} position={[g.at.lat, g.at.lng]} icon={icons[i]}>
           <Popup>
-            <div className="space-y-3">
+            <div className="min-w-48 space-y-3 divide-y divide-line">
               {g.days.map((d) => (
-                <div key={d.id} className="text-sm leading-snug">
-                  <div className="font-semibold">Day {d.day_number} · {fmtDate(d.date)}</div>
-                  <div>{d.travel_city} → {d.sleep_city}</div>
-                  {accById(d.accommodation_id) && <div className="text-slate-600">🛏 {accById(d.accommodation_id)!.name}</div>}
+                <div key={d.id} className="space-y-1 pt-3 text-sm leading-snug first:pt-0">
+                  <div className="text-base font-bold">Day {d.day_number} <span className="text-sm font-medium text-muted">· {fmtDate(d.date)}</span></div>
+                  <div className="font-medium">{d.travel_city} → {d.sleep_city}</div>
+                  {accById(d.accommodation_id) && <div className="flex items-center gap-1.5 text-xs text-muted"><Bed aria-hidden className="size-3.5 shrink-0" />{accById(d.accommodation_id)!.name}</div>}
                   <div><Weather day={d} /></div>
-                  <Link to={`/trip/day/${d.day_number}`} viewTransition className="inline-flex min-h-[44px] items-center font-medium text-blue-600 underline">View day</Link>
+                  <Link to={`/trip/day/${d.day_number}`} viewTransition className="inline-flex min-h-11 items-center"><span className="rounded-full bg-primary px-3.5 py-1.5 text-xs font-semibold !text-white">View day →</span></Link>
                 </div>
               ))}
             </div>

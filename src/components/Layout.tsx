@@ -1,10 +1,11 @@
 import { NavLink, Outlet, ScrollRestoration, useLocation } from "react-router-dom";
+import { CalendarDays, Luggage, Map as MapIcon } from "lucide-react";
 import { setNavDir } from "../lib/motion";
 
 const TABS = [
-  { to: "/today", icon: "📅", label: "Today" },
-  { to: "/trip", icon: "🧳", label: "Trip" },
-  { to: "/map", icon: "🗺️", label: "Map" },
+  { to: "/today", icon: CalendarDays, label: "Today" },
+  { to: "/trip", icon: Luggage, label: "Trip" },
+  { to: "/map", icon: MapIcon, label: "Map" },
 ];
 
 // Only the Trip list restores by path (so the back link to /trip lands where you left); others by history entry.
@@ -16,15 +17,15 @@ export function Layout() {
   return (
     <div onClickCapture={() => setNavDir()} className="pb-[var(--tabbar-h)]">
       <Outlet />
-      <nav aria-label="Tabs" className="tabbar fixed inset-x-0 bottom-0 z-[1100] border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
+      <nav aria-label="Tabs" className="tabbar fixed inset-x-0 bottom-0 z-[1100] rounded-t-3xl bg-surface pb-[env(safe-area-inset-bottom)] shadow-[0_-6px_24px_-8px_rgb(74_52_34/0.18)]">
         <div className="relative mx-auto grid max-w-3xl grid-cols-3">
-          <span aria-hidden className="tab-pill pointer-events-none absolute inset-y-1.5 left-0 w-1/3 px-4" style={{ transform: `translateX(${idx * 100}%)` }}>
-            <span className="block h-full rounded-full bg-slate-100" />
+          <span aria-hidden className="tab-pill pointer-events-none absolute top-2 left-0 flex w-1/3 justify-center" style={{ transform: `translateX(${idx * 100}%)` }}>
+            <span className="block h-8 w-16 rounded-full bg-primary-soft" />
           </span>
           {TABS.map((t, i) => (
             <NavLink key={t.to} to={t.to} viewTransition
-              className={`relative flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs font-medium ${i === idx ? "text-slate-900" : "text-slate-500"}`}>
-              <span aria-hidden className={`tab-icon text-xl leading-none ${i === idx ? "tab-icon-active" : ""}`}>{t.icon}</span>
+              className={`relative flex min-h-16 flex-col items-center justify-start gap-1 pt-3 text-xs ${i === idx ? "font-bold text-primary" : "font-medium text-muted"}`}>
+              <t.icon aria-hidden className={`tab-icon size-6 ${i === idx ? "tab-icon-active" : ""}`} strokeWidth={i === idx ? 2.25 : 1.75} />
               {t.label}
             </NavLink>
           ))}
