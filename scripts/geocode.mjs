@@ -5,7 +5,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 
 const TRIP = new URL("../src/data/trip.json", import.meta.url);
-const UA = "trip-lens-geocoder/0.1 (one-off personal trip planner; contact tinn.jittjana@agoda.com)";
+const UA = "trip-lens-geocoder/0.1 (one-off personal trip planner; contact immicky.a@gmail.com)";
 const force = process.argv.includes("--force");
 const reportPath = process.argv.includes("--report") ? process.argv[process.argv.indexOf("--report") + 1] : null;
 
@@ -147,7 +147,9 @@ for (const d of trip.days) {
 }
 for (const a of trip.accommodations) {
   if (!force && a.location) continue;
+  const disabled = a.location?.maps_link_disabled;
   a.location = await resolve(`hotel ${a.id} ${a.name}`, HOTEL_Q[a.id], BOX[HOTEL_BOX(a.id)], `${a.name}, ${a.city}`);
+  if (disabled && a.location) a.location.maps_link_disabled = true; // keep manual flag across --force
 }
 for (const d of trip.days) {
   const n = d.day_number;

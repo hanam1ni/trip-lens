@@ -1,5 +1,5 @@
 // Hand-written to match schema/trip.schema.json (v1.1.0) exactly.
-export interface Location { lat?: number | null; lng?: number | null; maps_query?: string | null }
+export interface Location { lat?: number | null; lng?: number | null; maps_query?: string | null; maps_link_disabled?: boolean }
 export type LocationField = Location | null | undefined;
 export interface Airport { iata: string; city: string }
 export interface LocalDateTime { local_datetime: string; timezone: string }

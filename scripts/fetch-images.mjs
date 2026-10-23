@@ -18,6 +18,7 @@ const MAX_BYTES = 60 * 1024;
 
 // Items that are generic / chains / not a specific place: never looked up.
 const SKIP = {
+  "acc-01": "private home",
   "d01-s03": "chain store",
   "d02-s04": "chain (Starbucks)",
   "d03-s06": "generic rest stop",
@@ -114,11 +115,6 @@ function nameMatch(itemName, names) {
     const m = norm(x);
     if (m === n) return "exact";
   }
-  // tolerate a type suffix/prefix ("Hakkoda Ropeway" vs "Hakkoda Ropeway Station"), >=6 chars shared whole name
-  for (const x of names) {
-    const m = norm(x);
-    if (n.length >= 6 && m.length >= 6 && (m.startsWith(n) || n.startsWith(m))) return "prefix";
-  }
   return null;
 }
 
@@ -189,6 +185,10 @@ async function fetchImage(fileName, id) {
 mkdirSync(OUT_DIR, { recursive: true });
 const manifest = existsSync(MANIFEST) ? JSON.parse(readFileSync(MANIFEST, "utf8")) : {};
 const report = [];
+function saveManifest() {
+  const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
+  writeFileSync(MANIFEST, JSON.stringify(sorted, null, 2) + "\n");
+}
 for (const it of items) {
   if (only && !only.includes(it.id)) continue;
   if (SKIP[it.id]) { report.push(`SKIP  ${it.id} | ${it.name} | ${SKIP[it.id]}`); continue; }
@@ -200,13 +200,11 @@ for (const it of items) {
     if (dry) { report.push(`WOULD ${it.id} | ${it.name} | ${g.label} ${g.id} | ${g.why} | ${g.p18}`); continue; }
     const m = await fetchImage(g.p18, it.id);
     manifest[it.id] = { file: m.file, source_page: m.source_page, author: m.author, license: m.license, license_url: m.license_url, wikidata_id: g.id };
+    saveManifest(); // persist after each image so an interrupted run keeps what it fetched
     report.push(`OK    ${it.id} | ${it.name} | ${g.label} ${g.id} | ${g.why} | ${m.file} ${m.bytes}B ${m.license} / ${m.author}`);
   } catch (e) {
     report.push(`ERR   ${it.id} | ${it.name} | ${e.message}`);
   }
 }
-if (!dry) {
-  const sorted = Object.fromEntries(Object.entries(manifest).sort(([a], [b]) => a.localeCompare(b)));
-  writeFileSync(MANIFEST, JSON.stringify(sorted, null, 2) + "\n");
-}
+if (!dry) saveManifest();
 console.log(report.join("\n"));

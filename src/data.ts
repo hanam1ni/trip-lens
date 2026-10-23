@@ -14,7 +14,7 @@ export const coord = (l: Location | null | undefined): Coord | null =>
   l && typeof l.lat === "number" && typeof l.lng === "number" ? { lat: l.lat, lng: l.lng } : null;
 
 export const mapsUrl = (l: Location | null | undefined): string | null => {
-  if (!l) return null;
+  if (!l || l.maps_link_disabled) return null;
   const c = coord(l);
   const q = l.maps_query ?? (c ? `${c.lat},${c.lng}` : null);
   if (!q) return null;

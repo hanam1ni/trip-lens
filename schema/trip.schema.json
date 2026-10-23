@@ -193,6 +193,10 @@
             "string",
             "null"
           ]
+        },
+        "maps_link_disabled": {
+          "type": "boolean",
+          "description": "True to hide the Google Maps link in the UI (e.g. private homes). Omitted means false."
         }
       }
     },

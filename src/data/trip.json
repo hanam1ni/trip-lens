@@ -93,11 +93,11 @@
       "meal_plan": null,
       "price": null,
       "currency": "JPY",
-      "notes": "Listed in the source as 'Home in Aomori'; property type not specified.",
       "location": {
         "lat": 40.822734,
         "lng": 140.746924,
-        "maps_query": "Home in Aomori, Aomori"
+        "maps_query": "Home in Aomori, Aomori",
+        "maps_link_disabled": true
       }
     },
     {
