@@ -19,10 +19,11 @@ const MAX_BYTES = 60 * 1024;
 // Items that are generic / chains / not a specific place: never looked up.
 const SKIP = {
   "acc-01": "private home",
-  "d01-s03": "chain store",
-  "d02-s04": "chain (Starbucks)",
-  "d03-s06": "generic rest stop",
-  "d07-f01": "generic (rest area along the way)",
+  "d02-s01": "chain store",
+  "d02-s07": "chain (Starbucks)",
+  "d03-s08": "generic rest stop",
+  "d09-f01": "generic (lunch in Fukushima)",
+  "d09-f02": "generic (lunch along Bandai Skyline)",
   "d10-f01": "generic (breakfast in Koriyama)",
   "d06-s03": "ticket office, not a place with a photo",
   "d08-f02": "generic snack",
@@ -32,13 +33,12 @@ const SKIP = {
 // Search-term overrides (candidate generation only; acceptance still needs name+location checks).
 const QUERY = {
   "d01-s01": ["Nebuta Museum Warasse"],
-  "d02-s03": ["Hirosaki City Library", "弘前市立図書館"],
-  "d03-s05": ["Lake Towada"],
+  "d02-s06": ["Hirosaki City Library", "弘前市立図書館"],
+  "d03-s07": ["Lake Towada"],
 };
 // Hand-picked Commons files (owner-approved), used as-is without the name/location checks.
 const MANUAL = {
   "d05-s01": { file: "Tsurunoyu Onsen 01.jpg", wikidata_id: "Q11675866" }, // Category:Tsurunoyu Onsen (Akita)
-  "d09-s02": { file: "260731 Yanaginuma Goshikinuma Kitashiobara Fukushima pref Japan01s3.jpg", wikidata_id: null }, // Urabandai, not Nikko's Goshiki Pond
 };
 // Natural/large features get the looser 5 km radius.
 const LARGE = new Set(["nature", "scenic_route", "onsen", "park", "town"]);

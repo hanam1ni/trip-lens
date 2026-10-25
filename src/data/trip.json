@@ -1,8 +1,8 @@
 {
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "meta": {
-    "source_file": "Aomori Plan DB - Sheet1.csv",
-    "generated_on": "2026-10-23",
+    "source_file": "Aomori Plan DB - Sheet1 (1).csv",
+    "generated_on": "2026-10-25",
     "parse_notes": [
       "Flight times are stored as local wall-clock time per airport. The implied flight time is 5h15m outbound (23:45 BKK to 07:00 NRT) vs 7h15m return, so confirm whether the outbound arrival is in Tokyo time or Bangkok time.",
       "All prices are empty in the source and are stored as null. Flight currency is THB, plan currency is JPY.",
@@ -10,7 +10,17 @@
       "Hotel check-in/check-out dates are derived from the 'Sleep City' column and the day dates.",
       "day_type, category and cuisine are derived labels added for the UI; they are not in the source.",
       "Drive durations are travel time between consecutive points only, as written in the source.",
-      "Items marked needs_review had ambiguous or possibly mistyped source text."
+      "Items marked needs_review had ambiguous or possibly mistyped source text.",
+      "Alternatives written as 'X or Y' or 'Option is ...' are kept as separate food items with is_option=true and a shared option_group."
+    ],
+    "changelog": [
+      "Day 1: Toys R Us and Aomori Bank Memorial Museum moved to Day 2.",
+      "Day 2: added Hirosaki Castle and Osanai Apple Shop (breakfast option); received Toys R Us and Aomori Bank Memorial Museum from Day 1.",
+      "Day 3: added Jigokunuma, Towada Horse Park Komakko Land, Akita Dog Center and Auga Fresh Market B1.",
+      "Day 4: added lunch options at Lake Tazawa (Beer Restaurant Orae or Gatagata Burger); Goshogake Onsen now marked '(Too late)' with a parking lot note.",
+      "Day 7: lunch is now at Geibikei Gorge instead of a rest area along the way.",
+      "Day 9: Goshikinuma Pond and its 'check how to go' todo removed; added Azuma Sports Park Gingko Trees and Koriyama Ishimushiro Fureai Farm; added lunch options and dinner at Yhui Restaurant.",
+      "Days 5, 6, 8, 10-13, flights, hotels and transport are unchanged."
     ]
   },
   "trip": {
@@ -93,6 +103,7 @@
       "meal_plan": null,
       "price": null,
       "currency": "JPY",
+      "notes": "Listed in the source as 'Home in Aomori'; property type not specified.",
       "location": {
         "lat": 40.822734,
         "lng": 140.746924,
@@ -178,6 +189,7 @@
       "meal_plan": null,
       "price": null,
       "currency": "JPY",
+      "notes": "Room 202 with roof balcony. Type 'apartment' is inferred from the Rakuten STAY brand.",
       "location": {
         "lat": null,
         "lng": null,
@@ -220,6 +232,7 @@
       "meal_plan": null,
       "price": null,
       "currency": "JPY",
+      "notes": "Type 'apartment' is inferred from the MIMARU brand (apartment-style hotel).",
       "location": {
         "lat": null,
         "lng": null,
@@ -305,30 +318,10 @@
         {
           "id": "d01-s03",
           "order": 3,
-          "name": "Toys R Us at Ciina Ciina mall",
-          "category": "shopping",
-          "note": null,
-          "location": null
-        },
-        {
-          "id": "d01-s04",
-          "order": 4,
           "name": "Aomori Bay",
           "category": "nature",
           "note": "Anri bakery",
           "location": null
-        },
-        {
-          "id": "d01-s05",
-          "order": 5,
-          "name": "Aomori Bank Memorial Museum",
-          "category": "museum",
-          "note": null,
-          "location": {
-            "lat": 40.602916,
-            "lng": 140.468564,
-            "maps_query": "Aomori Bank Memorial Museum, Aomori, Japan"
-          }
         }
       ],
       "food": [
@@ -350,7 +343,7 @@
       "notes": [],
       "source_text": {
         "travel": "Nex Narita to Tokyo Shinkanzen to Shin-Aomori (3hr 11min",
-        "sightseeing": "Nebuta Museum WA RASSE, A Factory (Apple Pie), ToyRus at Ciina Ciina mall, Aomori bay (Anri bakery), Aomori Bank memorial museum )",
+        "sightseeing": "Nebuta Museum WA RASSE, A Factory (Apple Pie), Aomori bay (Anri bakery)",
         "food": "Osanai",
         "hotel": "Home in Aomori"
       },
@@ -403,6 +396,14 @@
         {
           "id": "d02-s01",
           "order": 1,
+          "name": "Toys R Us at Ciina Ciina mall",
+          "category": "shopping",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d02-s02",
+          "order": 2,
           "name": "Takayama Inari Shrine",
           "category": "shrine_temple",
           "note": null,
@@ -413,8 +414,8 @@
           }
         },
         {
-          "id": "d02-s02",
-          "order": 2,
+          "id": "d02-s03",
+          "order": 3,
           "name": "Hirosaki Apple Park",
           "category": "attraction",
           "note": null,
@@ -425,8 +426,32 @@
           }
         },
         {
-          "id": "d02-s03",
-          "order": 3,
+          "id": "d02-s04",
+          "order": 4,
+          "name": "Hirosaki Castle",
+          "category": "attraction",
+          "note": null,
+          "location": {
+            "lat": 40.607929,
+            "lng": 140.463661,
+            "maps_query": "Hirosaki Castle, Hirosaki, Japan"
+          }
+        },
+        {
+          "id": "d02-s05",
+          "order": 5,
+          "name": "Aomori Bank Memorial Museum",
+          "category": "museum",
+          "note": null,
+          "location": {
+            "lat": 40.602916,
+            "lng": 140.468564,
+            "maps_query": "Aomori Bank Memorial Museum, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d02-s06",
+          "order": 6,
           "name": "Hirosaki City Library",
           "category": "other",
           "note": null,
@@ -437,24 +462,24 @@
           }
         },
         {
-          "id": "d02-s04",
-          "order": 4,
+          "id": "d02-s07",
+          "order": 7,
           "name": "Starbucks",
           "category": "cafe",
           "note": null,
           "location": null
         },
         {
-          "id": "d02-s05",
-          "order": 5,
+          "id": "d02-s08",
+          "order": 8,
           "name": "Nakano Momiji-yama",
           "category": "nature",
           "note": "Autumn illumination",
           "location": null
         },
         {
-          "id": "d02-s06",
-          "order": 6,
+          "id": "d02-s09",
+          "order": 9,
           "name": "Shinmachi Street",
           "category": "town",
           "note": null,
@@ -469,6 +494,7 @@
           "meal": "breakfast",
           "cuisine": "Sushi",
           "note": null,
+          "option_group": "d02-breakfast",
           "location": {
             "lat": 40.825912,
             "lng": 140.735848,
@@ -478,6 +504,17 @@
         {
           "id": "d02-f02",
           "order": 2,
+          "name": "Osanai Apple Shop",
+          "meal": "breakfast",
+          "cuisine": null,
+          "note": "Alternative breakfast option; shop is near the station",
+          "is_option": true,
+          "option_group": "d02-breakfast",
+          "location": null
+        },
+        {
+          "id": "d02-f03",
+          "order": 3,
           "name": "Hasshoku Center",
           "meal": "unspecified",
           "cuisine": "Fish market",
@@ -487,8 +524,8 @@
           "location": null
         },
         {
-          "id": "d02-f03",
-          "order": 3,
+          "id": "d02-f04",
+          "order": 4,
           "name": "Hirosaki Apple Park",
           "meal": "lunch",
           "cuisine": null,
@@ -500,8 +537,8 @@
           }
         },
         {
-          "id": "d02-f04",
-          "order": 4,
+          "id": "d02-f05",
+          "order": 5,
           "name": "Taisho Roman Tearoom",
           "meal": "snack",
           "cuisine": "Apple pie",
@@ -513,8 +550,8 @@
           }
         },
         {
-          "id": "d02-f05",
-          "order": 5,
+          "id": "d02-f06",
+          "order": 6,
           "name": "Robata to Oden Koronagi",
           "meal": "dinner",
           "cuisine": "Robata / oden",
@@ -526,8 +563,8 @@
       "notes": [],
       "source_text": {
         "travel": "Drive 1 hr to Takayama Inari, Drive 1 hr to Hirosaki",
-        "sightseeing": "Takayama Inari Shrine, Hirosaki Apple Park, Hirosaki city library, Starbucks,  Nakano Momiji-yama (illumination), Shinmachi Street",
-        "food": "Breakfast - Aomori Gyosai Center - Sushi, Hasshoku center - fish market lunch- at Apple Park afternoon Taisho Roman Tearoom - apple pie Dinner- Robata to oden koronagi",
+        "sightseeing": "ToyRus at Ciina Ciina mall, Takayama Inari Shrine, Hirosaki Apple Park, Hirosaki Castle, Aomori Bank memorial museum, Hirosaki city library, Starbucks,  Nakano Momiji-yama (illumination), Shinmachi Street",
+        "food": "Breakfast - Aomori Gyosai Center - Sushi, Option is Osanai Apple Shop near station, Hasshoku center - fish market lunch- at Apple Park afternoon Taisho Roman Tearoom - apple pie, Dinner- Robata to oden koronagi",
         "travel_2": "Drive 1 hour mins back",
         "hotel": "Home in Aomori"
       },
@@ -622,6 +659,14 @@
         {
           "id": "d03-s03",
           "order": 3,
+          "name": "Jigokunuma",
+          "category": "nature",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d03-s04",
+          "order": 4,
           "name": "Tsutanuma Pond",
           "category": "nature",
           "note": null,
@@ -632,16 +677,24 @@
           }
         },
         {
-          "id": "d03-s04",
-          "order": 4,
+          "id": "d03-s05",
+          "order": 5,
+          "name": "Towada Horse Park Komakko Land",
+          "category": "park",
+          "note": null,
+          "location": null
+        },
+        {
+          "id": "d03-s06",
+          "order": 6,
           "name": "Oirase",
           "category": "nature",
           "note": null,
           "location": null
         },
         {
-          "id": "d03-s05",
-          "order": 5,
+          "id": "d03-s07",
+          "order": 7,
           "name": "Towada Lake Cruise",
           "category": "attraction",
           "note": null,
@@ -652,16 +705,30 @@
           }
         },
         {
-          "id": "d03-s06",
-          "order": 6,
+          "id": "d03-s08",
+          "order": 8,
           "name": "Roadside Station Oyu",
           "category": "rest_stop",
           "note": null,
           "location": null
         },
         {
-          "id": "d03-s07",
-          "order": 7,
+          "id": "d03-s09",
+          "order": 9,
+          "name": "Akita Dog Center",
+          "category": "attraction",
+          "note": null,
+          "needs_review": true,
+          "review_note": "Source reads 'Akita, Dog Center' (split by a comma); interpreted as one place.",
+          "location": {
+            "lat": 40.286665,
+            "lng": 140.556075,
+            "maps_query": "Akita Dog Center, Aomori, Japan"
+          }
+        },
+        {
+          "id": "d03-s10",
+          "order": 10,
           "name": "Kazunoshi Sogo Undo Koen",
           "category": "park",
           "note": "Playground near the hotel",
@@ -690,6 +757,15 @@
         {
           "id": "d03-f02",
           "order": 2,
+          "name": "Auga Fresh Market B1",
+          "meal": "unspecified",
+          "cuisine": "Fresh market",
+          "note": "Basement level (B1)",
+          "location": null
+        },
+        {
+          "id": "d03-f03",
+          "order": 3,
           "name": "Hasshoku Center",
           "meal": "unspecified",
           "cuisine": "Fish market",
@@ -709,8 +785,8 @@
       ],
       "source_text": {
         "travel": "Drive 30 minutes to Hakkoda, Drive 8 mins to Jogakura, Drive 25 mins to Tsutanuma Pond. Drive 40 mins to Lake Towada",
-        "sightseeing": "Hakkoda Ropeway, Jogakura Bridge, Tsutanuma Pond, Oirase, Towada Lake Cruise, roadside station oyu, ใกล้ๆโรงแรม มีสนามเด็กเล่น kazunoshi Sogo Undo Koen",
-        "food": "Breakfast - Aomori Gyosai Center - Sushi, Hasshoku center - fish market ",
+        "sightseeing": "Hakkoda Ropeway, Jogakura Bridge, Jigokunuma, Tsutanuma Pond, Towada Horse Park Komakko Land, Oirase, Towada Lake Cruise, roadside station oyu, Akita, Dog Center, ใกล้ๆโรงแรม มีสนามเด็กเล่น kazunoshi Sogo Undo Koen",
+        "food": "Breakfast - Aomori Gyosai Center - Sushi, Auga Fresh Market B1, Hasshoku center - fish market ",
         "travel_2": "Drive 1hr 20 mins ",
         "hotel": "Kamenoi Hotel Akita Yuze (half-board)"
       },
@@ -755,7 +831,9 @@
           "order": 2,
           "name": "Goshogake Onsen",
           "category": "onsen",
-          "note": null,
+          "note": "Goshogake Parking Lot. Plan marks it '(Too late)'",
+          "needs_review": true,
+          "review_note": "Source: 'Goshogake Onsen (Goshogake Parking Lot) (Too late)'. Unclear whether it means arrival would be too late or that this stop is dropped; confirm.",
           "location": {
             "lat": 39.975197,
             "lng": 140.80025,
@@ -787,15 +865,39 @@
           }
         }
       ],
-      "food": [],
+      "food": [
+        {
+          "id": "d04-f01",
+          "order": 1,
+          "name": "Beer Restaurant Orae",
+          "meal": "lunch",
+          "cuisine": null,
+          "note": "Lunch at Lake Tazawa; alternative to Gatagata Burger",
+          "is_option": true,
+          "option_group": "d04-lunch",
+          "location": null
+        },
+        {
+          "id": "d04-f02",
+          "order": 2,
+          "name": "Gatagata Burger",
+          "meal": "lunch",
+          "cuisine": "Burger",
+          "note": "Lunch at Lake Tazawa; alternative to Beer Restaurant Orae",
+          "is_option": true,
+          "option_group": "d04-lunch",
+          "location": null
+        }
+      ],
       "todos": [],
       "notes": [
         "Dinner is included at the hotel (half-board)."
       ],
       "source_text": {
         "travel": "Drive 1 hr 40 mins",
-        "sightseeing": "Hachimantai Onuma Pond, Goshogake Onsen, Tamagawa Onsen, Lake Tazawa",
-        "hotel": "Cerulean Resort Aoni (half-board)"
+        "sightseeing": "Hachimantai Onuma Pond, Goshogake Onsen (Goshogake Parking Lot) (Too late), Tamagawa Onsen, Lake Tazawa",
+        "hotel": "Cerulean Resort Aoni (half-board)",
+        "food": "Lunch at Lake Tazawa (Beer Restaurant Orae or Gatagata Burger)"
       },
       "location": {
         "lat": 39.724837,
@@ -1010,7 +1112,7 @@
       "todos": [],
       "notes": [],
       "source_text": {
-        "sightseeing": "Koiwai Farm, Morioka JR Station, morioka kippushi",
+        "sightseeing": "Koiwai Farm, Morioka JR Station, Morioka Kippushi",
         "food": "Pyon Pyon Sya (Remen), Azumaya Honten, Fukuda pan, Hamburg restaurant bell, Buy Pano Pano bread for tmr morning",
         "hotel": "Daiwa Roynet Morioka Ekimae"
       },
@@ -1073,10 +1175,10 @@
         {
           "id": "d07-f01",
           "order": 1,
-          "name": "Rest area along the way",
+          "name": "Lunch at Geibikei Gorge",
           "meal": "lunch",
           "cuisine": null,
-          "note": null,
+          "note": "Source spelled 'Geibekei'; assumed Geibikei Gorge, which is on the day's route",
           "location": null
         },
         {
@@ -1131,7 +1233,7 @@
       "notes": [],
       "source_text": {
         "sightseeing": "Chusonji Temple, Geibikei Gorge & Pokemon Train, Parco Sendai (All Character Shop)",
-        "food": "Lunch rest area along the way, Kaku Sendai (วัว), Gyutan Cuisine Kaku Brandome Main Store, Zunda Shake ถั่วแระปั่น, ร้านซูชิ shiohamako",
+        "food": "Lunch at Geibekei, Kaku Sendai (วัว), Gyutan Cuisine Kaku Brandome Main Store, Zunda Shake ถั่วแระปั่น, ร้านซูชิ shiohamako",
         "hotel": "Rakuten STAY x EAGLES 202 with Roof balcony"
       },
       "location": {
@@ -1254,32 +1356,69 @@
         {
           "id": "d09-s01",
           "order": 1,
+          "name": "Azuma Sports Park Gingko Trees",
+          "category": "park",
+          "note": "Ginkgo trees (autumn colour)",
+          "location": null
+        },
+        {
+          "id": "d09-s02",
+          "order": 2,
           "name": "Bandai Azuma Skyline",
           "category": "scenic_route",
           "note": "Described in the plan as the most beautiful road in Japan",
           "location": null
         },
         {
-          "id": "d09-s02",
-          "order": 2,
-          "name": "Goshikinuma Pond",
-          "category": "nature",
-          "note": "Check how to get there",
-          "location": {
-            "lat": 37.740628,
-            "lng": 140.243175,
-            "maps_query": "Goshikinuma Pond, Fukushima, Japan"
-          }
+          "id": "d09-s03",
+          "order": 3,
+          "name": "Koriyama Ishimushiro Fureai Farm",
+          "category": "farm",
+          "note": null,
+          "location": null
         }
       ],
-      "food": [],
-      "todos": [
-        "Check how to get to Goshikinuma Pond"
+      "food": [
+        {
+          "id": "d09-f01",
+          "order": 1,
+          "name": "Lunch in Fukushima",
+          "meal": "lunch",
+          "cuisine": null,
+          "note": "Alternative to lunch along Bandai Skyline",
+          "is_option": true,
+          "option_group": "d09-lunch",
+          "location": null
+        },
+        {
+          "id": "d09-f02",
+          "order": 2,
+          "name": "Lunch along Bandai Skyline",
+          "meal": "lunch",
+          "cuisine": null,
+          "note": "Alternative to lunch in Fukushima",
+          "is_option": true,
+          "option_group": "d09-lunch",
+          "location": null
+        },
+        {
+          "id": "d09-f03",
+          "order": 3,
+          "name": "Yhui Restaurant",
+          "meal": "dinner",
+          "cuisine": null,
+          "note": null,
+          "needs_review": true,
+          "review_note": "Spelling kept as written ('Yhui'); verify the restaurant name.",
+          "location": null
+        }
       ],
+      "todos": [],
       "notes": [],
       "source_text": {
-        "sightseeing": "Bandai Azuma Skyline (Most Beauiful Road in Japan), Goshikinuma pond (Check how to go)",
-        "hotel": "Daiwa Roynet Koriyama"
+        "sightseeing": "Azuma Sports Park Gingko Trees, Bandai Azuma Skyline (Most Beauiful Road in Japan), Koriyama Ishimushiro Fureai Farm",
+        "hotel": "Daiwa Roynet Koriyama",
+        "food": "Lunch in Fukushima or along Bandai Skyline, Dinner's at Yhui Restaurant"
       },
       "location": {
         "lat": 37.723424,
