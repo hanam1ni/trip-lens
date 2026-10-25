@@ -24,6 +24,7 @@ export function FoodList({ day, title = "Where we eat" }: { day: Day; title?: st
                   <li key={f.id} className={card}>
                     <Thumb id={f.id} alt={f.name} />
                     <Row tile={<IconTile icon={Utensils} tone="accent" />} title={f.name} meta={f.cuisine}>
+                      {f.option_group && <div className="text-xs font-semibold text-accent-ink">Option</div>}
                       {f.note && <div>{f.note}</div>}
                       <Original text={f.note_original} />
                       <CardActions name={f.name} loc={f.location} />

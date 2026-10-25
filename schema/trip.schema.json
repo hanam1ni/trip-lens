@@ -40,6 +40,13 @@
           "items": {
             "type": "string"
           }
+        },
+        "changelog": {
+          "type": "array",
+          "description": "Per-day summary of content changes between plan versions.",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -627,6 +634,14 @@
         },
         "review_note": {
           "type": "string"
+        },
+        "option_group": {
+          "type": "string",
+          "description": "Shared id for food items that are alternatives for the same meal slot (e.g. 'd04-lunch')."
+        },
+        "is_option": {
+          "type": "boolean",
+          "description": "True on items added as an alternative to the group's first item. Omitted means false."
         }
       }
     },

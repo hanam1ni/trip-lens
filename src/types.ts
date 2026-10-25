@@ -1,4 +1,4 @@
-// Hand-written to match schema/trip.schema.json (v1.1.0) exactly.
+// Hand-written to match schema/trip.schema.json (v1.2.0) exactly.
 export interface Location { lat?: number | null; lng?: number | null; maps_query?: string | null; maps_link_disabled?: boolean }
 export type LocationField = Location | null | undefined;
 export interface Airport { iata: string; city: string }
@@ -39,6 +39,7 @@ export type Meal = "breakfast" | "lunch" | "dinner" | "snack" | "takeaway" | "un
 export interface FoodItem {
   id: string; order: number; name: string; meal: Meal; cuisine: string | null; note: string | null;
   note_original?: string; location?: LocationField; needs_review?: boolean; review_note?: string;
+  option_group?: string; is_option?: boolean;
 }
 export type DayType = "arrival" | "sightseeing" | "road_trip" | "transit" | "free" | "departure";
 export interface Day {
@@ -51,7 +52,7 @@ export interface Day {
 }
 export interface Trip {
   schema_version: string;
-  meta: { source_file: string; generated_on: string; parse_notes: string[] };
+  meta: { source_file: string; generated_on: string; parse_notes: string[]; changelog?: string[] };
   trip: {
     id: string; title: string; region: string; start_date: string; end_date: string; day_count: number;
     night_count: number; default_currency: string; home_timezone: string; destination_timezone: string;
