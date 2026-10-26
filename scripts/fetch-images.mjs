@@ -39,6 +39,8 @@ const QUERY = {
 // Hand-picked Commons files (owner-approved), used as-is without the name/location checks.
 const MANUAL = {
   "d05-s01": { file: "Tsurunoyu Onsen 01.jpg", wikidata_id: "Q11675866" }, // Category:Tsurunoyu Onsen (Akita)
+  "d03-s03": { file: "Sukayu Jigokunuma 20221114.JPG", wikidata_id: null }, // Hakkoda, on the day-3 route
+  "d03-s09": { file: "Akita Dog Visitor Center 20200613.jpg", wikidata_id: null }, // pin is at this building
 };
 // Natural/large features get the looser 5 km radius.
 const LARGE = new Set(["nature", "scenic_route", "onsen", "park", "town"]);
