@@ -1,138 +1,21 @@
 {
-  "d01-s01": {
-    "file": "d01-s01.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Nebuta_Museum_Wa_Rasse_20200621.jpg",
-    "author": "掬茶",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q11275091"
-  },
-  "d01-s02": {
-    "file": "d01-s02.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:A-Factory_20240324.jpg",
-    "author": "掬茶",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q11188584"
-  },
-  "d01-s03": {
-    "file": "d01-s03.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Aomori_Bay_Asamushi_Onsen_Japan01n.jpg",
-    "author": "663highland",
-    "license": "CC BY 2.5",
-    "license_url": "https://creativecommons.org/licenses/by/2.5",
-    "wikidata_id": "Q11662159"
-  },
-  "d02-s02": {
-    "file": "d02-s02.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Takayama_Inari_Shrine.JPG",
-    "author": "D-Chillz",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q25104460"
-  },
-  "d02-s04": {
-    "file": "d02-s04.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Hirosaki_Castle_Keep_Tower_20220508.jpg",
-    "author": "掬茶",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q328582"
-  },
-  "d03-s01": {
-    "file": "d03-s01.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Hakkoda_Ropeway_2019.jpg",
-    "author": "Marho",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q5640557"
-  },
-  "d03-s02": {
-    "file": "d03-s02.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:J%C5%8Dgakura_Bridge_in_autumn-1.jpg",
-    "author": "Mccunicano",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q95688204"
-  },
-  "d03-s03": {
-    "file": "d03-s03.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Sukayu_Jigokunuma_20221114.JPG",
-    "author": "あおもりくま",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": null
-  },
-  "d03-s09": {
-    "file": "d03-s09.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Akita_Dog_Visitor_Center_20200613.jpg",
-    "author": "掬茶",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": null
-  },
-  "d04-s04": {
-    "file": "d04-s04.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Lake_Tazawa_and_Kansa-g%C5%AB_20210213.jpg",
-    "author": "(Tea-making tea) 掬茶",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q174309"
-  },
-  "d05-s01": {
-    "file": "d05-s01.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Tsurunoyu_Onsen_01.jpg",
-    "author": "津島修三",
-    "license": "CC BY 2.1 jp",
-    "license_url": "https://creativecommons.org/licenses/by/2.1/jp/deed.en",
-    "wikidata_id": "Q11675866"
-  },
-  "d06-s01": {
-    "file": "d06-s01.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Sheep_pusture_in_Koiwai_Farm.jpg",
-    "author": "掬茶",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q11460030"
-  },
-  "d07-s01": {
-    "file": "d07-s01.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:230728_Chusonji_Hiraizumi_Iwate_pref_Japan01s3.jpg",
-    "author": "663highland",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q2660144"
-  },
-  "d08-s02": {
-    "file": "d08-s02.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Sendai_Daikannon_(1870523730).jpg",
-    "author": "Hideyuki KAMON from Takarazuka / 宝塚市, Hyogo / 兵庫県, Japan / 日本",
-    "license": "CC BY-SA 2.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
-    "wikidata_id": "Q1621882"
-  },
-  "d11-s01": {
-    "file": "d11-s01.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Sanrio_Puroland.jpg",
-    "author": "Kakidai",
-    "license": "CC BY-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "wikidata_id": "Q1133851"
-  },
-  "d13-s01": {
-    "file": "d13-s01.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Togo-jinja-haiden.jpg",
-    "author": "KENPEI",
-    "license": "CC BY-SA 3.0",
-    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
-    "wikidata_id": "Q1384780"
-  },
-  "d13-s02": {
-    "file": "d13-s02.jpg",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Harajuku_Station_Tokyo.jpg",
-    "author": "Chris 73",
-    "license": "CC BY-SA 3.0",
-    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
-    "wikidata_id": "Q746573"
-  }
+  "d01-s01": "d01-s01.jpg",
+  "d01-s02": "d01-s02.jpg",
+  "d01-s03": "d01-s03.jpg",
+  "d02-s02": "d02-s02.jpg",
+  "d02-s04": "d02-s04.jpg",
+  "d02-s05": "d02-s05.jpg",
+  "d02-s06": "d02-s06.jpg",
+  "d03-s01": "d03-s01.jpg",
+  "d03-s02": "d03-s02.jpg",
+  "d03-s03": "d03-s03.jpg",
+  "d03-s09": "d03-s09.jpg",
+  "d04-s04": "d04-s04.jpg",
+  "d05-s01": "d05-s01.jpg",
+  "d06-s01": "d06-s01.jpg",
+  "d07-s01": "d07-s01.jpg",
+  "d08-s02": "d08-s02.jpg",
+  "d11-s01": "d11-s01.jpg",
+  "d13-s01": "d13-s01.jpg",
+  "d13-s02": "d13-s02.jpg"
 }
