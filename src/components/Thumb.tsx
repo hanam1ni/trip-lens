@@ -3,22 +3,15 @@ import images from "../data/images.json";
 import type { Day } from "../types";
 import { CATEGORY_ICON, CATEGORY_TONE, DAY_TYPE_ICON, DAY_TYPE_TONE, TONE } from "../lib/style";
 
-export interface ImageMeta { file: string; source_page: string; author: string; license: string; license_url: string | null; wikidata_id: string | null }
-const manifest = images as Record<string, ImageMeta>;
+const manifest = images as Record<string, string>;
 
-export const photoFor = (id: string): ImageMeta | undefined => manifest[id];
-export const imgSrc = (m: ImageMeta) => `${import.meta.env.BASE_URL}images/${m.file}`;
+export const photoFor = (id: string): string | undefined => manifest[id];
+export const imgSrc = (file: string) => `${import.meta.env.BASE_URL}images/${file}`;
 /** Day's places in visit order; first one with a manifest photo wins (picks up new photos automatically). */
 export const placeIds = (d: Day) => [...d.sightseeing].sort((a, b) => a.order - b.order).map((p) => p.id);
 export const firstPhotoId = (ids: string[]) => ids.find((id) => manifest[id]);
 
-export const Credit = ({ m, className = "" }: { m: ImageMeta; className?: string }) => (
-  <a href={m.source_page} target="_blank" rel="noopener noreferrer" className={`underline underline-offset-2${className}`}>
-    Photo: {m.author}, {m.license}
-  </a>
-);
-
-// Renders a local Wikimedia thumbnail + attribution for an item id, or nothing if there is none (or it fails to load).
+// Renders a local thumbnail for an item id, or nothing if there is none (or it fails to load).
 export function Thumb({ id, alt }: { id: string; alt: string }) {
   const [bad, setBad] = useState(false);
   const m = manifest[id];
@@ -27,7 +20,6 @@ export function Thumb({ id, alt }: { id: string; alt: string }) {
     <figure className="mb-3">
       <img src={imgSrc(m)} alt={alt} loading="lazy" decoding="async" onError={() => setBad(true)}
         className="aspect-[16/9] w-full rounded-2xl bg-paper object-cover" />
-      <figcaption className="mt-1 text-[11px] leading-tight text-muted"><Credit m={m} /></figcaption>
     </figure>
   );
 }

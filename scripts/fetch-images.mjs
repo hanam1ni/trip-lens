@@ -1,6 +1,6 @@
 // One-off thumbnail fetcher (NOT part of `npm run build`). Wikimedia/Wikidata only.
 // Usage: node scripts/fetch-images.mjs [--force] [--dry] [--only id1,id2]
-// Writes public/images/<id>.<ext> and src/data/images.json (manifest with attribution).
+// Writes public/images/<id>.<ext> and src/data/images.json (id -> file name).
 // Hard rule: an item is accepted only if a Wikidata entity (in Japan, with P18) matches by
 // name AND location. Anything uncertain is skipped.
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync } from "node:fs";
@@ -199,12 +199,12 @@ function saveManifest() {
 for (const it of items) {
   if (only && !only.includes(it.id)) continue;
   if (SKIP[it.id]) { report.push(`SKIP  ${it.id} | ${it.name} | ${SKIP[it.id]}`); continue; }
-  if (!force && manifest[it.id] && existsSync(new URL(manifest[it.id].file, OUT_DIR))) { report.push(`KEEP  ${it.id} | ${it.name} | already present`); continue; }
+  if (!force && manifest[it.id] && existsSync(new URL(manifest[it.id], OUT_DIR))) { report.push(`KEEP  ${it.id} | ${it.name} | already present`); continue; }
   try {
     if (MANUAL[it.id]) {
       if (dry) { report.push(`WOULD ${it.id} | ${it.name} | manual | ${MANUAL[it.id].file}`); continue; }
       const m = await fetchImage(MANUAL[it.id].file, it.id);
-      manifest[it.id] = { file: m.file, source_page: m.source_page, author: m.author, license: m.license, license_url: m.license_url, wikidata_id: MANUAL[it.id].wikidata_id };
+      manifest[it.id] = m.file;
       saveManifest();
       report.push(`OK    ${it.id} | ${it.name} | manual | ${m.file} ${m.bytes}B ${m.license} / ${m.author}`);
       continue;
@@ -214,7 +214,7 @@ for (const it of items) {
     const g = r.ok;
     if (dry) { report.push(`WOULD ${it.id} | ${it.name} | ${g.label} ${g.id} | ${g.why} | ${g.p18}`); continue; }
     const m = await fetchImage(g.p18, it.id);
-    manifest[it.id] = { file: m.file, source_page: m.source_page, author: m.author, license: m.license, license_url: m.license_url, wikidata_id: g.id };
+    manifest[it.id] = m.file;
     saveManifest(); // persist after each image so an interrupted run keeps what it fetched
     report.push(`OK    ${it.id} | ${it.name} | ${g.label} ${g.id} | ${g.why} | ${m.file} ${m.bytes}B ${m.license} / ${m.author}`);
   } catch (e) {
